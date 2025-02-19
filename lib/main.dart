@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trendbuy/features/auth/screens/sign_in.dart';
 import 'package:trendbuy/features/splash/presentation/cubit/splash_cubit.dart';
+import 'package:trendbuy/features/splash/presentation/screens/splash.dart';
 import 'package:trendbuy/utils/theme/app_theme.dart';
 
 void main() {
@@ -17,8 +17,7 @@ class TrendBuy extends StatelessWidget {
       create: (context) => SplashCubit()..appStarted(),
       child: MaterialApp(
         theme: AppTheme.theme,
-        // home: const SplashScreen(), TODO:
-        home: const SignInScreen(),
+        home: const SplashScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );
