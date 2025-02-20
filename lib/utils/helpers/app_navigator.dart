@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PushHelpers {
-  const PushHelpers._();
+class AppNavigator {
+  const AppNavigator._();
 
   static void push(BuildContext context, {required Widget widget}) {
     Navigator.of(context).push(

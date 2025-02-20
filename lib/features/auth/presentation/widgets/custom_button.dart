@@ -10,11 +10,11 @@ Widget customButton(
     onPressed: onPressed,
     style: OutlinedButton.styleFrom(
       enableFeedback: false,
-      backgroundColor: AppColors.buttonBgColor,
+      backgroundColor: AppColors.tertiaryColor,
       foregroundColor: Colors.white,
       fixedSize: const Size(340, 50),
       alignment: AlignmentDirectional.center,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
     ),
     child: Text(
       buttonText ?? 'Continue',

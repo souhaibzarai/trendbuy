@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/utils/helpers/push_helpers.dart';
+import 'package:trendbuy/utils/helpers/app_navigator.dart';
 import 'package:trendbuy/utils/theme/app_colors.dart';
 
 class GlobalAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -21,6 +21,7 @@ class GlobalAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: bgColor ?? Colors.transparent,
       elevation: 0,
+
       actions: actions,
       centerTitle: true,
       title: title ?? const Text(''),
@@ -29,13 +30,16 @@ class GlobalAppBar extends StatelessWidget implements PreferredSizeWidget {
               ? null
               : IconButton(
                 onPressed: () {
-                  PushHelpers.pop(context);
+                  AppNavigator.pop(context);
                 },
                 icon: Container(
-                  width: 50,
-                  height: 50,
+                  // margin: EdgeInsets.all(12),
+                  // width: 70,
+                  // height: 50,
+                  padding: const EdgeInsets.only(right: 3),
+                  alignment: AlignmentDirectional.center,
                   decoration: const BoxDecoration(
-                    color: AppColors.secondaryColor,
+                    color: AppColors.tertiaryColor,
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(

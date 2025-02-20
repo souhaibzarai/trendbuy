@@ -9,8 +9,6 @@ Widget customTextField(
   return TextField(
     decoration: InputDecoration(
       hintText: hintText,
-
-      helper: const Text('', style: null),
     ),
     cursorColor: AppColors.buttonBgColor,
     obscureText: isObscure!,

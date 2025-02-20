@@ -9,7 +9,7 @@ class AppTheme {
     // hintColor: AppColors.infoColor,
     textTheme: const TextTheme(),
     inputDecorationTheme: const InputDecorationTheme().copyWith(
-      constraints: const BoxConstraints(minHeight: 80, maxWidth: 340),
+      constraints: const BoxConstraints(maxHeight: 80, maxWidth: 340),
       border: getOutlineInputBorder(),
       enabledBorder: getOutlineInputBorder(),
       errorBorder: getOutlineInputBorder(color: AppColors.errorColor),
@@ -26,14 +26,14 @@ class AppTheme {
 TextStyle getTextStyle({Color? color, double? fSize}) {
   return TextStyle(
     color: color ?? Colors.white,
-    fontSize: fSize ?? 12,
+    fontSize: fSize ?? 14,
     fontWeight: FontWeight.w400,
   );
 }
 
 OutlineInputBorder getOutlineInputBorder({Color? color}) {
   return OutlineInputBorder(
-    borderRadius: BorderRadius.circular(12),
+    borderRadius: BorderRadius.circular(4),
     borderSide: BorderSide(color: color ?? Colors.transparent),
   );
 }
