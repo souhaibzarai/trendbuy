@@ -7,7 +7,6 @@ import 'package:trendbuy/features/auth/presentation/widgets/under_button_text.da
 import 'package:trendbuy/utils/helpers/app_navigator.dart';
 
 import 'package:trendbuy/features/auth/presentation/screens/forgot_password.dart';
-
 import '../../../../common/widgets/app_commons.dart';
 
 class PasswordScreen extends StatelessWidget {
@@ -19,7 +18,6 @@ class PasswordScreen extends StatelessWidget {
       appBar: const GlobalAppBar(hideBackButton: false),
       body: SingleChildScrollView(
         padding: AppCommons.padding,
-
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [

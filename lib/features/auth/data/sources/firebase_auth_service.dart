@@ -3,11 +3,11 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:trendbuy/features/auth/data/models/user_create.dart';
 
-abstract class AuthFirebaseAuthService {
+abstract class AuthFirebaseService {
   Future<Either> signUp(UserCreation user);
 }
 
-class AuthFirebaseAuthServiceImpl implements AuthFirebaseAuthService {
+class AuthFirebaseAuthServiceImpl implements AuthFirebaseService {
   @override
   Future<Either> signUp(UserCreation user) async {
     try {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trendbuy/features/auth/presentation/screens/gender_and_age.dart';
 import 'package:trendbuy/features/auth/presentation/screens/sign_in.dart';
 
 import '../../../../common/widgets/app_commons.dart';
@@ -47,7 +48,15 @@ class SignUpScreen extends StatelessWidget {
               isObscure: true, //
             ),
             const SizedBox(height: 20),
-            customButton(context, onPressed: () {}),
+            customButton(
+              context,
+              onPressed: () {
+                AppNavigator.push(
+                  context,
+                  widget: const GenderAndAgeScreen(), //
+                );
+              },
+            ),
             const SizedBox(height: 10),
             underButtonText(
               context,
