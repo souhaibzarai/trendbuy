@@ -1,13 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:trendbuy/features/auth/data/models/user_create.dart';
+import '../models/user_create.dart';
 
 abstract class AuthFirebaseService {
   Future<Either> signUp(UserCreation user);
+  Future<Either> getAges();
 }
 
-class AuthFirebaseAuthServiceImpl implements AuthFirebaseService {
+class AuthFirebaseServiceImpl implements AuthFirebaseService {
   @override
   Future<Either> signUp(UserCreation user) async {
     try {
@@ -37,6 +38,21 @@ class AuthFirebaseAuthServiceImpl implements AuthFirebaseService {
       }
 
       return Left(message);
+    }
+  }
+
+  @override
+  Future<Either> getAges() async {
+    try {
+      var returnedData =
+          await FirebaseFirestore.instance
+              .collection('ages')
+              .orderBy('index')
+              .get();
+
+      return Right(returnedData.docs);
+    } catch (_) {
+      return const Left('Please try again ');
     }
   }
 }

@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
 class AppColors {
   const AppColors._();
@@ -12,4 +12,5 @@ class AppColors {
   static const Color successColor = Color.fromARGB(255, 22, 196, 127);
   static const Color buttonBgColor = Color.fromARGB(255, 77, 161, 169);
   static const Color fillColor = Color.fromARGB(255, 11, 25, 44);
+  static const Color whiteColor = Colors.white38;
 }

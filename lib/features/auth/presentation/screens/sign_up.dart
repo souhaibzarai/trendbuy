@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/features/auth/presentation/screens/gender_and_age.dart';
-import 'package:trendbuy/features/auth/presentation/screens/sign_in.dart';
+import 'gender_and_age.dart';
+import 'sign_in.dart';
 
-import '../../../../common/widgets/app_commons.dart';
+import '../../../../common/app_commons.dart';
 import '../../../../common/widgets/global_app_bar.dart';
 import '../../../../utils/helpers/app_navigator.dart';
 import '../widgets/custom_button.dart';

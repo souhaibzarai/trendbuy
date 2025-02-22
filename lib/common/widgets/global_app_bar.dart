@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/utils/helpers/app_navigator.dart';
-import 'package:trendbuy/utils/theme/app_colors.dart';
+
+import '../../utils/helpers/app_navigator.dart';
+import '../../utils/theme/app_colors.dart';
 
 class GlobalAppBar extends StatelessWidget implements PreferredSizeWidget {
   const GlobalAppBar({

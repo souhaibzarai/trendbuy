@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/common/widgets/app_commons.dart';
-import 'package:trendbuy/common/widgets/global_app_bar.dart';
-import 'package:trendbuy/features/auth/presentation/screens/password_screen.dart';
-import 'package:trendbuy/features/auth/presentation/screens/sign_up.dart';
-import 'package:trendbuy/features/auth/presentation/widgets/custom_button.dart';
-import 'package:trendbuy/features/auth/presentation/widgets/custom_header_text.dart';
-import 'package:trendbuy/features/auth/presentation/widgets/custom_text_field.dart';
-import 'package:trendbuy/features/auth/presentation/widgets/under_button_text.dart';
-import 'package:trendbuy/utils/helpers/app_navigator.dart';
+import '../../../../common/app_commons.dart';
+import '../../../../common/widgets/global_app_bar.dart';
+import 'password_screen.dart';
+import 'sign_up.dart';
+import '../widgets/custom_button.dart';
+import '../widgets/custom_header_text.dart';
+import '../widgets/custom_text_field.dart';
+import '../widgets/under_button_text.dart';
+import '../../../../utils/helpers/app_navigator.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});

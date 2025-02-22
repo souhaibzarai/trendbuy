@@ -1,35 +1,54 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/utils/theme/app_colors.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../utils/theme/app_colors.dart';
+import '../bloc/gender_selector_cubit.dart';
 
 genderSelector(
   BuildContext context, {
   required String text,
   required int index,
 }) {
-  return Expanded(
-    flex: 1,
-    child: GestureDetector(
-      onTap: () {},
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        decoration: BoxDecoration(
-          color: index == 1 ? AppColors.infoColor : AppColors.fillColor,
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(
-            width: 1,
-            color: AppColors.infoColor, //
+  return BlocBuilder<GenderSelectorCubit, int>(
+    key: ValueKey('$index$text'),
+    builder: (context, state) {
+      bool selectedCondition =
+          index == context.watch<GenderSelectorCubit>().selectedIndex;
+      return Expanded(
+        flex: 1,
+        child: GestureDetector(
+          onTap: () {
+            context.read<GenderSelectorCubit>().selectIndex(index);
+          },
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            decoration: BoxDecoration(
+              color:
+                  selectedCondition
+                      ? AppColors.tertiaryColor
+                      : AppColors.fillColor,
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(
+                width: .5,
+                color: AppColors.tertiaryColor, //
+              ),
+            ),
+            width: double.infinity,
+            child: Text(
+              '${selectedCondition ? '➾ ' : ''}$text',
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center, // Added to center text
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                fontWeight: FontWeight.normal,
+                color:
+                    selectedCondition
+                        ? AppColors.fillColor
+                        : AppColors.tertiaryColor,
+              ),
+            ),
           ),
         ),
-        width: double.infinity,
-        child: Text(
-          text,
-          textAlign: TextAlign.center, // Added to center text
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-            fontWeight: FontWeight.normal,
-            color: index == 1 ? AppColors.fillColor : AppColors.infoColor,
-          ),
-        ),
-      ),
-    ),
+      );
+    },
   );
 }

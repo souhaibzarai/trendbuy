@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/common/widgets/global_app_bar.dart';
-import 'package:trendbuy/features/auth/presentation/widgets/custom_button.dart';
-import 'package:trendbuy/features/auth/presentation/widgets/custom_header_text.dart';
-import 'package:trendbuy/features/auth/presentation/widgets/custom_text_field.dart';
-import 'package:trendbuy/features/auth/presentation/widgets/under_button_text.dart';
-import 'package:trendbuy/utils/helpers/app_navigator.dart';
+import '../../../../common/widgets/global_app_bar.dart';
+import '../widgets/custom_button.dart';
+import '../widgets/custom_header_text.dart';
+import '../widgets/custom_text_field.dart';
+import '../widgets/under_button_text.dart';
+import '../../../../utils/helpers/app_navigator.dart';
 
-import 'package:trendbuy/features/auth/presentation/screens/forgot_password.dart';
-import '../../../../common/widgets/app_commons.dart';
+import 'forgot_password.dart';
+import '../../../../common/app_commons.dart';
 
 class PasswordScreen extends StatelessWidget {
   const PasswordScreen({super.key});

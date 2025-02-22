@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trendbuy/features/auth/presentation/screens/sign_in.dart';
-import 'package:trendbuy/features/splash/presentation/cubit/splash_cubit.dart';
-import 'package:trendbuy/features/splash/presentation/cubit/splash_state.dart';
-import 'package:trendbuy/utils/constants/images_path.dart';
+import '../../../auth/presentation/screens/sign_in.dart';
+import '../cubit/splash_cubit.dart';
+import '../cubit/splash_state.dart';
+import '../../../../utils/constants/images_path.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});

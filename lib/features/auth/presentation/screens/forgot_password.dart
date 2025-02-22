@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/common/widgets/app_commons.dart';
+import '../../../../common/app_commons.dart';
 
 import '../../../../common/widgets/global_app_bar.dart';
 import '../widgets/custom_button.dart';
