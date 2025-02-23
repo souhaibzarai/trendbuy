@@ -5,12 +5,12 @@ Widget customTextField(
   BuildContext context, {
   String? hintText,
   bool? isObscure = false,
+  TextEditingController? controller,
 }) {
   return TextField(
-    decoration: InputDecoration(
-      hintText: hintText,
-    ),
+    decoration: InputDecoration(hintText: hintText),
     cursorColor: AppColors.buttonBgColor,
     obscureText: isObscure!,
+    controller: controller,
   );
 }

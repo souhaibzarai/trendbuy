@@ -13,7 +13,7 @@ genderSelector(
     key: ValueKey('$index$text'),
     builder: (context, state) {
       bool selectedCondition =
-          index == context.watch<GenderSelectorCubit>().selectedIndex;
+          index == context.read<GenderSelectorCubit>().selectedIndex;
       return Expanded(
         flex: 1,
         child: GestureDetector(

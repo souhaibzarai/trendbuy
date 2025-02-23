@@ -7,6 +7,7 @@ Widget customHeaderText(BuildContext context, {String? headerText}) {
       fontSize: 32,
       fontWeight: FontWeight.w600,
       color: Colors.white,
+      
     ),
   );
 }

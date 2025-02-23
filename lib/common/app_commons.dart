@@ -8,6 +8,9 @@ class AppCommons {
     vertical: 20,
   );
   static void showScaffold(BuildContext context, {required String message}) {
+    if (message == '') {
+      return;
+    }
     ScaffoldMessenger.of(
       context,
     ).showSnackBar(SnackBar(content: Text(message)));

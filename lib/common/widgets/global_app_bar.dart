@@ -22,7 +22,6 @@ class GlobalAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: bgColor ?? Colors.transparent,
       elevation: 0,
-
       actions: actions,
       centerTitle: true,
       title: title ?? const Text(''),
@@ -34,9 +33,6 @@ class GlobalAppBar extends StatelessWidget implements PreferredSizeWidget {
                   AppNavigator.pop(context);
                 },
                 icon: Container(
-                  // margin: EdgeInsets.all(12),
-                  // width: 70,
-                  // height: 50,
                   padding: const EdgeInsets.only(right: 3),
                   alignment: AlignmentDirectional.center,
                   decoration: const BoxDecoration(

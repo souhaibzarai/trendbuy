@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trendbuy/common/bloc/button/button_state.dart';
+import 'package:trendbuy/common/bloc/button/button_state_cubit.dart';
+import 'package:trendbuy/common/widgets/custom_reactive_button.dart';
+import 'package:trendbuy/features/auth/data/models/user_create.dart';
+import 'package:trendbuy/features/auth/domain/use_cases/sign_up.dart';
 import '../bloc/age_selector_cubit.dart';
 import '../bloc/ages_display_cubit.dart';
 import '../bloc/gender_selector_cubit.dart';
@@ -10,7 +15,12 @@ import '../../../../common/widgets/global_app_bar.dart';
 import '../../../../utils/theme/app_colors.dart';
 
 class GenderAndAgeScreen extends StatelessWidget {
-  const GenderAndAgeScreen({super.key});
+  const GenderAndAgeScreen({
+    super.key,
+    required this.userCreation, //
+  });
+
+  final UserCreation userCreation;
 
   @override
   Widget build(BuildContext context) {
@@ -21,55 +31,92 @@ class GenderAndAgeScreen extends StatelessWidget {
           BlocProvider(create: (context) => GenderSelectorCubit()),
           BlocProvider(create: (context) => AgeSelectorCubit()),
           BlocProvider(create: (context) => AgesDisplayCubit()),
+          BlocProvider(create: (context) => ButtonStateCubit()),
         ],
-        child: Column(
-          children: [
-            Padding(
-              padding: AppCommons.padding,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Tell us about yourself', //
-                    style: TextStyle(fontSize: 18),
-                  ),
-                  const SizedBox(height: 20),
-                  // Gender Selector
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      genderSelector(context, text: "Male", index: 1),
-                      const SizedBox(width: 10),
-                      genderSelector(context, text: "Female", index: 2),
-                    ],
-                  ),
-                  const SizedBox(height: 30),
-                  const Text(
-                    'How old are you?', //
-                    style: TextStyle(fontSize: 18),
-                  ),
-                  const SizedBox(height: 20),
-                  ageSelector(context),
-                ],
-              ),
-            ),
-            const Spacer(),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 25),
-              height: 100,
-              width: double.infinity,
-              color: AppColors.fillColor.withAlpha(80),
-              // decoration: BoxDecoration(),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.tertiaryColor,
-                  foregroundColor: AppColors.fillColor,
+        child: BlocListener<ButtonStateCubit, ButtonState>(
+          listenWhen: (curr, prev) => curr != prev,
+          listener: (context, state) {
+            if (state is ButtonFailureState) {
+              AppCommons.showScaffold(
+                context,
+                message: state.errMsg //
+              );
+            }
+          },
+          child: Column(
+            children: [
+              Padding(
+                padding: AppCommons.padding,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Tell us about yourself', //
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    const SizedBox(height: 20),
+                    // Gender Selector
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        genderSelector(context, text: "Male", index: 1),
+                        const SizedBox(width: 10),
+                        genderSelector(context, text: "Female", index: 2),
+                      ],
+                    ),
+                    const SizedBox(height: 30),
+                    const Text(
+                      'How old are you?', //
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    const SizedBox(height: 20),
+                    ageSelector(context),
+                  ],
                 ),
-                onPressed: () {},
-                child: Text('Finish'), //
               ),
-            ),
-          ],
+              const Spacer(),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 25),
+                height: 100,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      AppColors.fillColor.withAlpha(25),
+                      AppColors.fillColor.withAlpha(40),
+                      AppColors.fillColor.withAlpha(80),
+                      AppColors.fillColor.withAlpha(100),
+                    ], //
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                  ),
+                  border: Border.symmetric(
+                    vertical: BorderSide(
+                      width: 1,
+                      color: AppColors.tertiaryColor, //
+                    ),
+                  ),
+                ),
+                child: Builder(
+                  builder: (context) {
+                    return CustomReactiveButton(
+                      buttonText: 'Finish',
+                      onPressed: () {
+                        userCreation.gender =
+                            context.read<GenderSelectorCubit>().selectedIndex;
+                        userCreation.age =
+                            context.read<AgeSelectorCubit>().selectedAge;
+                        context.read<ButtonStateCubit>().execute(
+                          useCase: SignUpUseCase(),
+                          params: userCreation,
+                        );
+                      },
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

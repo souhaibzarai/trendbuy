@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../utils/theme/app_colors.dart';
+import '../../utils/theme/app_colors.dart';
 
 Widget customButton(
   BuildContext context, {
@@ -11,14 +11,15 @@ Widget customButton(
     style: OutlinedButton.styleFrom(
       enableFeedback: false,
       backgroundColor: AppColors.tertiaryColor,
-      foregroundColor: Colors.white,
       fixedSize: const Size(340, 50),
       alignment: AlignmentDirectional.center,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(25), //
+      ),
     ),
     child: Text(
       buttonText ?? 'Continue',
-      style: const TextStyle(color: Colors.white),
+      style: const TextStyle(color: AppColors.primaryColor),
     ),
   );
 }

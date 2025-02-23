@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../common/app_commons.dart';
 
 import '../../../../common/widgets/global_app_bar.dart';
-import '../widgets/custom_button.dart';
+import '../../../../common/widgets/custom_button.dart';
 import '../widgets/custom_header_text.dart';
 import '../widgets/custom_text_field.dart';
 

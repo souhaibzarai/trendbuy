@@ -3,7 +3,7 @@ import '../../../../common/app_commons.dart';
 import '../../../../common/widgets/global_app_bar.dart';
 import 'password_screen.dart';
 import 'sign_up.dart';
-import '../widgets/custom_button.dart';
+import '../../../../common/widgets/custom_button.dart';
 import '../widgets/custom_header_text.dart';
 import '../widgets/custom_text_field.dart';
 import '../widgets/under_button_text.dart';
@@ -42,7 +42,7 @@ class SignInScreen extends StatelessWidget {
               onTextClick: () {
                 return AppNavigator.push(
                   context,
-                  widget: const SignUpScreen(), //
+                  widget: SignUpScreen(), //
                 );
               },
             ),

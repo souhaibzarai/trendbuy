@@ -18,14 +18,17 @@ class AuthFirebaseServiceImpl implements AuthFirebaseService {
             password: user.password,
           );
 
-      await FirebaseFirestore.instance.doc(returnedData.user!.uid).set({
-        'firstName': user.firstName,
-        'lastName': user.lastName,
-        'email': user.email,
-        'password': user.password,
-        'gender': user.gender,
-        'age': user.age,
-      });
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(returnedData.user!.uid)
+          .set({
+            'firstName': user.firstName,
+            'lastName': user.lastName,
+            'email': user.email,
+            'password': user.password,
+            'gender': user.gender,
+            'age': user.age,
+          });
 
       return const Right('Creating Account Was Successfull');
     } on FirebaseAuthException catch (e) {
