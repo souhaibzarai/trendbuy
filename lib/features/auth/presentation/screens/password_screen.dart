@@ -102,7 +102,7 @@ class PasswordScreen extends StatelessWidget {
                             formKey.currentState!.save();
                           }
                         },
-                        buttonText: 'Signn In', //
+                        buttonText: 'Sign In', //
                       );
                     },
                   ),

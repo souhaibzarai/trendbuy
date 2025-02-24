@@ -16,7 +16,6 @@ class SignInScreen extends StatelessWidget {
   final TextEditingController emailContoller = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +39,7 @@ class SignInScreen extends StatelessWidget {
                       context,
                       widget: PasswordScreen(
                         userSignIn: UserSignIn(
-                          email: emailContoller.text, //
+                          email: emailContoller.text.trim(),
                         ),
                       ), //
                     );
