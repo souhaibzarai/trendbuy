@@ -5,6 +5,8 @@ import 'package:trendbuy/common/bloc/button/button_state_cubit.dart';
 import 'package:trendbuy/common/widgets/custom_reactive_button.dart';
 import 'package:trendbuy/features/auth/data/models/user_create.dart';
 import 'package:trendbuy/features/auth/domain/use_cases/sign_up.dart';
+import 'package:trendbuy/features/auth/presentation/screens/sign_in.dart';
+import 'package:trendbuy/utils/helpers/app_navigator.dart';
 import '../bloc/age_selector_cubit.dart';
 import '../bloc/ages_display_cubit.dart';
 import '../bloc/gender_selector_cubit.dart';
@@ -39,8 +41,14 @@ class GenderAndAgeScreen extends StatelessWidget {
             if (state is ButtonFailureState) {
               AppCommons.showScaffold(
                 context,
-                message: state.errMsg //
+                message: state.errMsg, //
               );
+            } else if (state is ButtonSuccessState) {
+              AppCommons.showScaffold(
+                context,
+                message: 'Successfully Registered',
+              );
+              AppNavigator.pushReplacement(context, widget: SignInScreen());
             }
           },
           child: Column(

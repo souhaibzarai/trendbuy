@@ -1,34 +1,88 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trendbuy/common/bloc/button/button_state.dart';
+import 'package:trendbuy/common/bloc/button/button_state_cubit.dart';
+import 'package:trendbuy/common/widgets/custom_reactive_button.dart';
+import 'package:trendbuy/features/auth/domain/use_cases/reset_password.dart';
+import 'package:trendbuy/features/auth/presentation/screens/reset_sent_screen.dart';
+import 'package:trendbuy/utils/helpers/app_navigator.dart';
 import '../../../../common/app_commons.dart';
 
 import '../../../../common/widgets/global_app_bar.dart';
-import '../../../../common/widgets/custom_button.dart';
 import '../widgets/custom_header_text.dart';
 import '../widgets/custom_text_field.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
-  const ForgotPasswordScreen({super.key});
+  ForgotPasswordScreen({
+    super.key,
+    required this.email, //
+  });
+
+  final String email;
+
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController emailContoller = TextEditingController(
+      text: email,
+    );
     return Scaffold(
       appBar: const GlobalAppBar(hideBackButton: false),
       body: SingleChildScrollView(
         padding: AppCommons.padding,
         child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              customHeaderText(context, headerText: 'Reset Password'),
-              const SizedBox(height: 20),
-              customTextField(context, hintText: 'Email'),
-              const SizedBox(height: 20),
-              customButton(
-                context,
-                onPressed: () {},
-                buttonText: 'Reset Password',
+          child: BlocProvider<ButtonStateCubit>(
+            create: (context) => ButtonStateCubit(),
+            child: BlocListener<ButtonStateCubit, ButtonState>(
+              listenWhen: (prev, curr) => prev != curr,
+              listener: (context, state) {
+                if (state is ButtonFailureState) {
+                  AppCommons.showScaffold(
+                    context,
+                    message: state.errMsg, //
+                  );
+                } else if (state is ButtonSuccessState) {
+                  AppCommons.showScaffold(context, message: 'Email Reset Sent');
+                }
+              },
+              child: Form(
+                key: formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    customHeaderText(context, headerText: 'Reset Password'),
+                    const SizedBox(height: 20),
+                    CustomTextField(
+                      hintText: 'Email',
+                      controller: emailContoller,
+                    ),
+                    const SizedBox(height: 20),
+                    Builder(
+                      builder: (context) {
+                        return CustomReactiveButton(
+                          onPressed: () {
+                            if (formKey.currentState!.validate()) {
+                              final email = emailContoller.text;
+                              context.read<ButtonStateCubit>().execute(
+                                useCase: ResetPasswordUsecase(),
+                                params: email,
+                              );
+                              AppNavigator.pushReplacement(
+                                context,
+                                widget: const ResetSentScreen(),
+                              );
+                              formKey.currentState!.save();
+                            }
+                          },
+                          buttonText: 'Reset Password',
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
-            ],
+            ),
           ),
         ),
       ),

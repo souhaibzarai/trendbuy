@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trendbuy/features/auth/data/models/user_sign_in.dart';
 import '../../../../common/app_commons.dart';
 import '../../../../common/widgets/global_app_bar.dart';
 import 'password_screen.dart';
@@ -10,7 +11,11 @@ import '../widgets/under_button_text.dart';
 import '../../../../utils/helpers/app_navigator.dart';
 
 class SignInScreen extends StatelessWidget {
-  const SignInScreen({super.key});
+  SignInScreen({super.key});
+
+  final TextEditingController emailContoller = TextEditingController();
+  final formKey = GlobalKey<FormState>();
+
 
   @override
   Widget build(BuildContext context) {
@@ -18,35 +23,45 @@ class SignInScreen extends StatelessWidget {
       appBar: const GlobalAppBar(hideBackButton: true),
       body: SingleChildScrollView(
         padding: AppCommons.padding,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            customHeaderText(context, headerText: 'Sign In'),
-            const SizedBox(height: 20),
-            customTextField(context, hintText: 'Email'),
-            const SizedBox(height: 20),
-            customButton(
-              context,
-              onPressed: () {
-                AppNavigator.push(
-                  context,
-                  widget: const PasswordScreen(), //
-                );
-              },
-            ),
-            const SizedBox(height: 10),
-            underButtonText(
-              context,
-              text: 'Don\'t have an account?',
-              clickableText: 'Register',
-              onTextClick: () {
-                return AppNavigator.push(
-                  context,
-                  widget: SignUpScreen(), //
-                );
-              },
-            ),
-          ],
+        child: Form(
+          key: formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              customHeaderText(context, headerText: 'Sign In'),
+              const SizedBox(height: 20),
+              CustomTextField(hintText: 'Email', controller: emailContoller),
+              const SizedBox(height: 20),
+              customButton(
+                context,
+                onPressed: () {
+                  if (formKey.currentState!.validate()) {
+                    AppNavigator.push(
+                      context,
+                      widget: PasswordScreen(
+                        userSignIn: UserSignIn(
+                          email: emailContoller.text, //
+                        ),
+                      ), //
+                    );
+                    formKey.currentState!.save();
+                  }
+                },
+              ),
+              const SizedBox(height: 10),
+              underButtonText(
+                context,
+                text: 'Don\'t have an account?',
+                clickableText: 'Register',
+                onTextClick: () {
+                  return AppNavigator.push(
+                    context,
+                    widget: SignUpScreen(), //
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

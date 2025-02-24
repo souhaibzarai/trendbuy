@@ -18,6 +18,7 @@ class SignUpScreen extends StatelessWidget {
   final _lastNameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -25,68 +26,70 @@ class SignUpScreen extends StatelessWidget {
       appBar: const GlobalAppBar(),
       body: SingleChildScrollView(
         padding: AppCommons.padding,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            customHeaderText(
-              context,
-              headerText: 'Sign Up', //
-            ),
-            const SizedBox(height: 20),
-            customTextField(
-              context,
-              hintText: 'First Name', //
-              controller: _firstNameController,
-            ),
-            const SizedBox(height: 20),
-            customTextField(
-              context,
-              hintText: 'Last Name', //
-              controller: _lastNameController,
-            ),
-            const SizedBox(height: 20),
-            customTextField(
-              context,
-              hintText: 'Email', //
-              controller: _emailController,
-            ),
-            const SizedBox(height: 20),
-            customTextField(
-              context,
-              hintText: 'Password',
-              isObscure: true, //
-              controller: _passwordController,
-            ),
-            const SizedBox(height: 20),
-            customButton(
-              context,
-              onPressed: () {
-                AppNavigator.push(
-                  context,
-                  widget: GenderAndAgeScreen(
-                    userCreation: UserCreation(
-                      firstName: _firstNameController.text,
-                      lastName: _lastNameController.text,
-                      email: _emailController.text,
-                      password: _passwordController.text,
-                    ),
-                  ), //
-                );
-              },
-            ),
-            const SizedBox(height: 10),
-            underButtonText(
-              context,
-              text: 'Already have an account?',
-              clickableText: 'Login',
-              onTextClick: () {
-                return AppNavigator.pushReplacement(
-                  context,
-                  widget: const SignInScreen(), //
-                );
-              },
-            ),
-          ],
+        child: Form(
+          key: formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              customHeaderText(
+                context,
+                headerText: 'Sign Up', //
+              ),
+              const SizedBox(height: 20),
+              CustomTextField(
+                hintText: 'First Name', //
+                controller: _firstNameController,
+              ),
+              const SizedBox(height: 20),
+              CustomTextField(
+                hintText: 'Last Name', //
+                controller: _lastNameController,
+              ),
+              const SizedBox(height: 20),
+              CustomTextField(
+                hintText: 'Email', //
+                controller: _emailController,
+              ),
+              const SizedBox(height: 20),
+              CustomTextField(
+                hintText: 'Password',
+                isObscure: true, //
+                controller: _passwordController,
+              ),
+              const SizedBox(height: 20),
+              customButton(
+                context,
+                onPressed: () {
+                  if (formKey.currentState!.validate()) {
+                    AppNavigator.push(
+                      context,
+                      widget: GenderAndAgeScreen(
+                        userCreation: UserCreation(
+                          firstName: _firstNameController.text,
+                          lastName: _lastNameController.text,
+                          email: _emailController.text,
+                          password: _passwordController.text,
+                        ),
+                      ), //
+                    );
+                    formKey.currentState!.save();
+                  }
+                },
+              ),
+              const SizedBox(height: 10),
+              underButtonText(
+                context,
+                text: 'Already have an account?',
+                clickableText: 'Login',
+                onTextClick: () {
+                  return AppNavigator.pushReplacement(
+                    context,
+                    widget: SignInScreen(), //
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
