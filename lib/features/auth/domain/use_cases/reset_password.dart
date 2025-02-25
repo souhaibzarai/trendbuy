@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:trendbuy/common/usecase.dart';
-import 'package:trendbuy/features/auth/domain/repository/auth_repo.dart';
-import 'package:trendbuy/service_locator.dart';
+import '../../../../common/usecase.dart';
+import '../repository/auth_repo.dart';
+import '../../../../service_locator.dart';
 
 class ResetPasswordUsecase extends Usecase<Either, String> {
   @override

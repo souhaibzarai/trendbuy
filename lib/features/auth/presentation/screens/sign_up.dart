@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/features/auth/data/models/user_create.dart';
+import '../../data/models/user_create.dart';
 import 'gender_and_age.dart';
 import 'sign_in.dart';
 

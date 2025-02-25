@@ -11,6 +11,10 @@ class AppColors {
   static const Color warningColor = Color.fromARGB(255, 255, 235, 0);
   static const Color successColor = Color.fromARGB(255, 22, 196, 127);
   static const Color buttonBgColor = Color.fromARGB(255, 77, 161, 169);
-  static const Color fillColor = Color.fromARGB(255, 11, 25, 44);
+  static const Color fillColor = Color.fromARGB(255, 36, 50, 70); //TODO: fake
+  // static const Color fillColor = Color.fromARGB(255, 11, 25, 44); // TODO: main
   static const Color whiteColor = Colors.white38;
 }
+
+
+// Color.fromARGB

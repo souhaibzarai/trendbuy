@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
-import 'package:trendbuy/features/auth/domain/use_cases/reset_password.dart';
-import 'package:trendbuy/features/auth/domain/use_cases/sign_in.dart';
+import 'features/auth/domain/use_cases/reset_password.dart';
+import 'features/auth/domain/use_cases/sign_in.dart';
+import 'features/auth/domain/use_cases/user_status.dart';
 import 'features/auth/data/repository/auth_repo_impl.dart';
 import 'features/auth/data/sources/firebase_auth_service.dart';
 import 'features/auth/domain/repository/auth_repo.dart';
@@ -36,5 +37,9 @@ Future<void> initDependencies() async {
 
   serviceLocator.registerSingleton<ResetPasswordUsecase>(
     ResetPasswordUsecase(), //
+  );
+
+  serviceLocator.registerSingleton<UserStatusUseCase>(
+    UserStatusUseCase(), //
   );
 }

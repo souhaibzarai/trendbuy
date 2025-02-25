@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trendbuy/common/bloc/button/button_state.dart';
-import 'package:trendbuy/common/bloc/button/button_state_cubit.dart';
-import 'package:trendbuy/common/widgets/custom_reactive_button.dart';
-import 'package:trendbuy/features/auth/data/models/user_create.dart';
-import 'package:trendbuy/features/auth/domain/use_cases/sign_up.dart';
-import 'package:trendbuy/features/auth/presentation/screens/sign_in.dart';
-import 'package:trendbuy/utils/helpers/app_navigator.dart';
+import '../../../../common/bloc/button/button_state.dart';
+import '../../../../common/bloc/button/button_state_cubit.dart';
+import '../../../../common/widgets/custom_reactive_button.dart';
+import '../../data/models/user_create.dart';
+import '../../domain/use_cases/sign_up.dart';
+import 'sign_in.dart';
+import '../../../../utils/helpers/app_navigator.dart';
 import '../bloc/age_selector_cubit.dart';
 import '../bloc/ages_display_cubit.dart';
 import '../bloc/gender_selector_cubit.dart';
@@ -67,9 +67,9 @@ class GenderAndAgeScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        genderSelector(context, text: "Male", index: 1),
+                        genderSelector(context, text: 'Male', index: 1),
                         const SizedBox(width: 10),
-                        genderSelector(context, text: "Female", index: 2),
+                        genderSelector(context, text: 'Female', index: 2),
                       ],
                     ),
                     const SizedBox(height: 30),

@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:trendbuy/features/auth/data/models/user_sign_in.dart';
+import '../models/user_sign_in.dart';
 import '../models/user_create.dart';
 
 abstract class AuthFirebaseService {
@@ -9,6 +9,7 @@ abstract class AuthFirebaseService {
   Future<Either> getAges();
   Future<Either> signIn(UserSignIn user);
   Future<Either> sendPasswordResetEmail(String email);
+  Future<bool> isLoggedIn();
 }
 
 class AuthFirebaseServiceImpl implements AuthFirebaseService {
@@ -91,6 +92,15 @@ class AuthFirebaseServiceImpl implements AuthFirebaseService {
       return const Right('Password reset email is sent!');
     } catch (e) {
       return const Left('Please enter a valid email or try again later!');
+    }
+  }
+
+  @override
+  Future<bool> isLoggedIn() async {
+    if (FirebaseAuth.instance.currentUser != null) {
+      return true;
+    } else {
+      return false;
     }
   }
 }

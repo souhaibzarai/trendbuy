@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trendbuy/common/bloc/button/button_state.dart';
-import 'package:trendbuy/common/bloc/button/button_state_cubit.dart';
-import 'package:trendbuy/common/widgets/custom_reactive_button.dart';
-import 'package:trendbuy/features/auth/data/models/user_sign_in.dart';
-import 'package:trendbuy/features/auth/domain/use_cases/sign_in.dart';
-import 'package:trendbuy/utils/theme/app_colors.dart';
+import '../../../../common/bloc/button/button_state.dart';
+import '../../../../common/bloc/button/button_state_cubit.dart';
+import '../../../../common/widgets/custom_reactive_button.dart';
+import '../../data/models/user_sign_in.dart';
+import '../../domain/use_cases/sign_in.dart';
+import '../../../home/presentation/screens/home.dart';
+import '../../../../utils/theme/app_colors.dart';
 import '../../../../common/widgets/global_app_bar.dart';
 import '../widgets/custom_header_text.dart';
 import '../widgets/custom_text_field.dart';
@@ -43,9 +44,9 @@ class PasswordScreen extends StatelessWidget {
                   message: state.errMsg, //
                 );
               } else if (state is ButtonSuccessState) {
-                AppCommons.showScaffold(
+                AppNavigator.pushAndRemove(
                   context,
-                  message: 'Successfully Signed In',
+                  widget: const HomeScreen(), //
                 );
               }
             },

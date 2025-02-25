@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/features/auth/presentation/screens/sign_in.dart';
-import 'package:trendbuy/utils/constants/images_path.dart';
-import 'package:trendbuy/utils/theme/app_colors.dart';
+import 'sign_in.dart';
+import '../../../../utils/constants/images_path.dart';
+import '../../../../utils/theme/app_colors.dart';
 import '../../../../common/app_commons.dart';
 
 import '../../../../common/widgets/custom_button.dart';

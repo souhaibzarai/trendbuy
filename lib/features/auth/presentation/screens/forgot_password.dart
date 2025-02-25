@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trendbuy/common/bloc/button/button_state.dart';
-import 'package:trendbuy/common/bloc/button/button_state_cubit.dart';
-import 'package:trendbuy/common/widgets/custom_reactive_button.dart';
-import 'package:trendbuy/features/auth/domain/use_cases/reset_password.dart';
-import 'package:trendbuy/features/auth/presentation/screens/reset_sent_screen.dart';
-import 'package:trendbuy/utils/helpers/app_navigator.dart';
+import '../../../../common/bloc/button/button_state.dart';
+import '../../../../common/bloc/button/button_state_cubit.dart';
+import '../../../../common/widgets/custom_reactive_button.dart';
+import '../../domain/use_cases/reset_password.dart';
+import 'reset_sent_screen.dart';
+import '../../../../utils/helpers/app_navigator.dart';
 import '../../../../common/app_commons.dart';
 
 import '../../../../common/widgets/global_app_bar.dart';

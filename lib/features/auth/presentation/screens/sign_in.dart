@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/features/auth/data/models/user_sign_in.dart';
+import '../../data/models/user_sign_in.dart';
 import '../../../../common/app_commons.dart';
 import '../../../../common/widgets/global_app_bar.dart';
 import 'password_screen.dart';

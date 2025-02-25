@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../home/presentation/screens/home.dart';
+import '../../../../utils/helpers/app_navigator.dart';
 import '../../../auth/presentation/screens/sign_in.dart';
 import '../cubit/splash_cubit.dart';
 import '../cubit/splash_state.dart';
@@ -14,8 +16,15 @@ class SplashScreen extends StatelessWidget {
       listenWhen: (current, prev) => current != prev,
       listener: (context, state) {
         if (state is UnAuthenticated) {
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => SignInScreen()),
+          AppNavigator.pushReplacement(
+            context,
+            widget: SignInScreen(), //
+          );
+        }
+        if (state is Authenticated) {
+          AppNavigator.pushReplacement(
+            context,
+            widget: const HomeScreen(), //
           );
         }
       },
