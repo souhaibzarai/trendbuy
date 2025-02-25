@@ -10,22 +10,28 @@ abstract class AuthFirebaseService {
   Future<Either> signIn(UserSignIn user);
   Future<Either> sendPasswordResetEmail(String email);
   Future<bool> isLoggedIn();
+  Future<Either> getUser();
 }
 
 class AuthFirebaseServiceImpl implements AuthFirebaseService {
   @override
   Future<Either> signUp(UserCreation user) async {
+    late String userId;
     try {
       final returnedData = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
             email: user.email,
             password: user.password,
           );
+      if (returnedData.user != null) {
+        userId = returnedData.user!.uid;
+      }
 
       await FirebaseFirestore.instance
           .collection('users')
           .doc(returnedData.user!.uid)
           .set({
+            'userId': userId,
             'firstName': user.firstName,
             'lastName': user.lastName,
             'email': user.email,
@@ -101,6 +107,29 @@ class AuthFirebaseServiceImpl implements AuthFirebaseService {
       return true;
     } else {
       return false;
+    }
+  }
+
+  @override
+  Future<Either> getUser() async {
+    try {
+      final currentUser = FirebaseAuth.instance.currentUser!.uid;
+
+      final userData = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(currentUser)
+          .get()
+          .then((value) => value.data());
+
+      if (userData == null) {
+        return Left('User data not found.');
+      }
+
+      return Right(userData);
+    } on FirebaseException catch (e) {
+      return Left('Firestore error: ${e.message}');
+    } catch (e) {
+      return Left('An unexpected error occurred. Please try again.');
     }
   }
 }

@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-
+import 'package:trendbuy/features/auth/data/models/user.dart';
 import '../../../../service_locator.dart';
 import '../../domain/repository/auth_repo.dart';
 import '../models/user_create.dart';
@@ -32,5 +32,21 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<bool> isLoggedIn() async {
     return await serviceLocator<AuthFirebaseService>().isLoggedIn();
+  }
+
+  @override
+  Future<Either> getUser() async {
+    var user = await serviceLocator<AuthFirebaseService>().getUser();
+    print(user.toString());
+    return user.fold(
+      (failure) {
+        return Left(failure.toString());
+      },
+      (data) {
+        return Right(
+          UserModel.fromJson(data).toEntity(), //
+        );
+      },
+    );
   }
 }

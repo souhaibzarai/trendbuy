@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trendbuy/features/home/presentation/screens/home.dart';
 import '../../../../common/bloc/button/button_state.dart';
 import '../../../../common/bloc/button/button_state_cubit.dart';
 import '../../../../common/widgets/custom_reactive_button.dart';
 import '../../data/models/user_create.dart';
 import '../../domain/use_cases/sign_up.dart';
-import 'sign_in.dart';
 import '../../../../utils/helpers/app_navigator.dart';
 import '../bloc/age_selector_cubit.dart';
 import '../bloc/ages_display_cubit.dart';
@@ -48,7 +48,7 @@ class GenderAndAgeScreen extends StatelessWidget {
                 context,
                 message: 'Successfully Registered',
               );
-              AppNavigator.pushReplacement(context, widget: SignInScreen());
+              AppNavigator.pushAndRemove(context, widget: HomeScreen());
             }
           },
           child: Column(

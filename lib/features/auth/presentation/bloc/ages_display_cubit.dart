@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../domain/use_cases/ages.dart';
+import '../../domain/use_cases/get_ages.dart';
 import 'ages_display_state.dart';
 import '../../../../service_locator.dart';
 
