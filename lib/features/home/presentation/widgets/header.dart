@@ -19,7 +19,7 @@ class Header extends StatelessWidget {
           if (state is UserInfoLoading) {
             return Image.asset(
               ImagesPath.loadingAnimation,
-              width: 250, //
+              // width: 250, // TODO
               fit: BoxFit.fitWidth,
             );
           } else if (state is UserInfoLoaded) {

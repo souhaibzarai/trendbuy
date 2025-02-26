@@ -3,6 +3,7 @@ import 'package:trendbuy/features/auth/domain/use_cases/get_user.dart';
 import 'package:trendbuy/features/category/data/repository/category_repo_impl.dart';
 import 'package:trendbuy/features/category/data/sources/categories_firebase_service.dart';
 import 'package:trendbuy/features/category/domain/repository/category_repo.dart';
+import 'package:trendbuy/features/category/domain/usecases/get_categories.dart';
 import 'features/auth/domain/use_cases/reset_password.dart';
 import 'features/auth/domain/use_cases/sign_in.dart';
 import 'features/auth/domain/use_cases/user_status.dart';
@@ -60,6 +61,10 @@ Future<void> initDependencies() async {
 
   serviceLocator.registerSingleton<GetUserUsecase>(
     GetUserUsecase(), //
+  );
+
+  serviceLocator.registerSingleton<GetCategoriesUseCase>(
+    GetCategoriesUseCase(), //
   );
 
   // end Usecases

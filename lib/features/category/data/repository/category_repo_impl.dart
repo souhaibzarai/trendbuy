@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:trendbuy/features/category/data/sources/categories_firebase_service.dart';
 import 'package:trendbuy/features/category/domain/repository/category_repo.dart';
 import 'package:trendbuy/service_locator.dart';
 
@@ -9,11 +10,14 @@ class CategoryRepoImpl implements CategoryRepository {
   Future<Either> getCategories() async {
     try {
       final categories =
-          await serviceLocator<CategoryRepository>().getCategories();
+          await serviceLocator<CategoriesFirebaseService>().getCategories();
+      print('data from repo is : $categories');
       return categories.fold(
         (error) => Left('Error while fetching categories'),
-        (categories) => Right(
-          CategoryModel.fromJson(categories).toEntity(), //
+        (data) => Right(
+          List.from(
+            data,
+          ).map((e) => CategoryModel.fromJson(e).toEntity()).toList(),
         ),
       );
     } catch (e) {
