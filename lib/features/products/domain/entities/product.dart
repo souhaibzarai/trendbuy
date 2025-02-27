@@ -6,11 +6,11 @@ class ProductEntity {
   final String categoryId;
   final List<ProductColorEntity> colors;
   final Timestamp createdAt;
-  final double disountedPrice;
+  final double discountedPrice;
   final int gender;
   final List<String>? images;
   final double price;
-  final double salesNumber;
+  final int salesNumber;
   final List<String> sizes;
   final String title;
 
@@ -19,7 +19,7 @@ class ProductEntity {
     required this.categoryId,
     required this.colors,
     required this.createdAt,
-    required this.disountedPrice,
+    required this.discountedPrice,
     required this.gender,
     required this.images,
     required this.price,

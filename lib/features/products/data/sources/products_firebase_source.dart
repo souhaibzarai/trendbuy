@@ -12,13 +12,15 @@ class ProductsFirebaseSourceImpl implements ProductsFirebaseSource {
       final returnedData =
           await FirebaseFirestore.instance
               .collection('products')
+              .where('salesNumber', isGreaterThan: 20)
+              .orderBy('salesNumber', descending: true)
               .limit(5)
-              .orderBy('salesNumber')
-              .where('salesNumber', isGreaterThan: 10)
               .get();
 
       return Right(returnedData.docs.map((data) => data.data()).toList());
-    } catch (e) {
+    } catch (e, stackTrace) {
+      print('Error details: $e');
+      print('Stack trace: $stackTrace');
       return Left('Error Occurred, $e');
     }
   }

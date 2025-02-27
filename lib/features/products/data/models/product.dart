@@ -8,11 +8,11 @@ class ProductModel {
   final String categoryId;
   final List<ProductColorModel> colors;
   final Timestamp createdAt;
-  final double disountedPrice;
+  final double discountedPrice;
   final int gender;
   final List<String>? images;
   final double price;
-  final double salesNumber;
+  final int salesNumber;
   final List<String> sizes;
   final String title;
 
@@ -21,7 +21,7 @@ class ProductModel {
     required this.categoryId,
     required this.colors,
     required this.createdAt,
-    required this.disountedPrice,
+    required this.discountedPrice,
     required this.gender,
     required this.images,
     required this.price,
@@ -31,6 +31,22 @@ class ProductModel {
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
+    List<String> sizesList = [];
+    if (json['sizes'] != null) {
+      if (json['sizes'] is List) {
+        sizesList =
+            (json['sizes'] as List).map((item) => item.toString()).toList();
+      }
+    }
+
+    List<String> imagesList;
+    if (json['images'] != null && json['images'] is List && (json['images'] as List).isNotEmpty) {
+      imagesList =
+          (json['images'] as List).map((item) => item.toString()).toList();
+    } else {
+      imagesList = ['https://i.imgur.com/Kr7liXH.jpeg'];
+    }
+
     return ProductModel(
       productId: json['productId'] as String,
       categoryId: json['categoryId'] as String,
@@ -38,14 +54,12 @@ class ProductModel {
         json['colors'].map((item) => ProductColorModel.fromJson(item)),
       ),
       createdAt: json['createdAt'] as Timestamp,
-      disountedPrice: json['discountedPrice'] as double,
-      gender: json['gender'] as int,
-      images:
-          json['images'] as List<String>? ??
-          ['https://i.imgur.com/w5doXZN.jpeg'],
-      price: json['price'] as double,
-      salesNumber: json['salesNumber'],
-      sizes: json['sizes'] as List<String>,
+      discountedPrice: (json['discountedPrice'] as num).toDouble(),
+      gender: (json['gender'] as num).toInt(),
+      images: imagesList,
+      price: (json['price'] as num).toDouble(),
+      salesNumber: (json['salesNumber'] as num).toInt(),
+      sizes: sizesList,
       title: json['title'] as String,
     );
   }
@@ -58,7 +72,7 @@ extension ProductXModel on ProductModel {
       categoryId: categoryId,
       colors: colors.map((color) => color.toEntity()).toList(),
       createdAt: createdAt,
-      disountedPrice: disountedPrice,
+      discountedPrice: discountedPrice,
       gender: gender,
       images: images,
       price: price,

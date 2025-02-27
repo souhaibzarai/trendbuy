@@ -19,7 +19,9 @@ class ProductsRepositoryImpl implements ProductsRepository {
           ).map((item) => ProductModel.fromJson(item).toEntity()).toList(),
         ),
       );
-    } catch (e) {
+    } catch (e, stackTrace) {
+      print('Error details: $e');
+      print('Stack trace: $stackTrace');
       return Left('Error Occurred, $e');
     }
   }
