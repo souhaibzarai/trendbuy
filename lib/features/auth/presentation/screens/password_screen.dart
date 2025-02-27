@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../common/bloc/button/button_state.dart';
 import '../../../../common/bloc/button/button_state_cubit.dart';
 import '../../../../common/widgets/custom_reactive_button.dart';
+import '../../../../utils/constants/constants.dart';
 import '../../data/models/user_sign_in.dart';
 import '../../domain/use_cases/sign_in.dart';
 import '../../../home/presentation/screens/home.dart';
@@ -32,7 +33,7 @@ class PasswordScreen extends StatelessWidget {
     return Scaffold(
       appBar: const GlobalAppBar(hideBackButton: false),
       body: SingleChildScrollView(
-        padding: AppCommons.padding,
+        padding: Constants.padding,
         child: BlocProvider<ButtonStateCubit>(
           create: (context) => ButtonStateCubit(),
           child: BlocListener<ButtonStateCubit, ButtonState>(

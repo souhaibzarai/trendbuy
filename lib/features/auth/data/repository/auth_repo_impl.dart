@@ -37,7 +37,6 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<Either> getUser() async {
     var user = await serviceLocator<AuthFirebaseService>().getUser();
-    print(user.toString());
     return user.fold(
       (failure) {
         return Left(failure.toString());

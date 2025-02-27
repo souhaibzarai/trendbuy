@@ -4,6 +4,7 @@ import 'package:trendbuy/features/home/presentation/screens/home.dart';
 import '../../../../common/bloc/button/button_state.dart';
 import '../../../../common/bloc/button/button_state_cubit.dart';
 import '../../../../common/widgets/custom_reactive_button.dart';
+import '../../../../utils/constants/constants.dart';
 import '../../data/models/user_create.dart';
 import '../../domain/use_cases/sign_up.dart';
 import '../../../../utils/helpers/app_navigator.dart';
@@ -54,7 +55,7 @@ class GenderAndAgeScreen extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: AppCommons.padding,
+                padding: Constants.padding,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

@@ -4,6 +4,9 @@ import 'package:trendbuy/features/category/data/repository/category_repo_impl.da
 import 'package:trendbuy/features/category/data/sources/categories_firebase_service.dart';
 import 'package:trendbuy/features/category/domain/repository/category_repo.dart';
 import 'package:trendbuy/features/category/domain/usecases/get_categories.dart';
+import 'package:trendbuy/features/products/data/repository/products_repo_impl.dart';
+import 'package:trendbuy/features/products/data/sources/products_firebase_source.dart';
+import 'package:trendbuy/features/products/domain/usecases/get_products.dart';
 import 'features/auth/domain/use_cases/reset_password.dart';
 import 'features/auth/domain/use_cases/sign_in.dart';
 import 'features/auth/domain/use_cases/user_status.dart';
@@ -12,6 +15,7 @@ import 'features/auth/data/sources/firebase_auth_service.dart';
 import 'features/auth/domain/repository/auth_repo.dart';
 import 'features/auth/domain/use_cases/get_ages.dart';
 import 'features/auth/domain/use_cases/sign_up.dart';
+import 'features/products/domain/repository/products_repo.dart';
 
 final serviceLocator = GetIt.instance;
 
@@ -22,7 +26,11 @@ Future<void> initDependencies() async {
   );
 
   serviceLocator.registerSingleton<CategoriesFirebaseService>(
-    CategoriesFirebaseServiceImpl(),
+    CategoriesFirebaseServiceImpl(), //
+  );
+
+  serviceLocator.registerSingleton<ProductsFirebaseSource>(
+    ProductsFirebaseSourceImpl(), //
   );
 
   // end services
@@ -34,6 +42,10 @@ Future<void> initDependencies() async {
 
   serviceLocator.registerSingleton<CategoryRepository>(
     CategoryRepoImpl(), //
+  );
+
+  serviceLocator.registerSingleton<ProductsRepository>(
+    ProductsRepositoryImpl(), //
   );
 
   // end Repository
@@ -65,6 +77,10 @@ Future<void> initDependencies() async {
 
   serviceLocator.registerSingleton<GetCategoriesUseCase>(
     GetCategoriesUseCase(), //
+  );
+
+  serviceLocator.registerSingleton<GetProductsUseCase>(
+    GetProductsUseCase(), //
   );
 
   // end Usecases

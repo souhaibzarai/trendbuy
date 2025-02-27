@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import '/features/category/presentation/widgets/categories.dart';
-import '../../../../common/app_commons.dart';
+import 'package:trendbuy/features/home/presentation/widgets/search.dart';
+import 'package:trendbuy/features/home/presentation/widgets/top_selling.dart';
+import 'package:trendbuy/utils/constants/constants.dart';
+import '../widgets/categories.dart';
 import '../widgets/header.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -11,13 +13,16 @@ class HomeScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
-          padding: AppCommons.padding,
+          padding: Constants.padding,
           child: Column(
             children: [
-              Header(), //
+              const Header(), //
               const SizedBox(height: 25),
-              Categories(),
-
+              const Search(),
+              const SizedBox(height: 25),
+              const Categories(),
+              const SizedBox(height: 25),
+              const TopSelling(),
               // SizedBox(height: 380),
               // SignOutButton(),
             ],

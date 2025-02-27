@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:trendbuy/utils/constants/constants.dart';
 import '../../data/models/user_create.dart';
 import 'gender_and_age.dart';
 import 'sign_in.dart';
-
-import '../../../../common/app_commons.dart';
 import '../../../../common/widgets/global_app_bar.dart';
 import '../../../../utils/helpers/app_navigator.dart';
 import '../../../../common/widgets/custom_button.dart';
@@ -25,7 +24,7 @@ class SignUpScreen extends StatelessWidget {
     return Scaffold(
       appBar: const GlobalAppBar(),
       body: SingleChildScrollView(
-        padding: AppCommons.padding,
+        padding: Constants.padding,
         child: Form(
           key: formKey,
           child: Column(

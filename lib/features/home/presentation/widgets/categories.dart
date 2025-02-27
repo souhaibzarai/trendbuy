@@ -28,7 +28,6 @@ class Categories extends StatelessWidget {
               ],
             );
           } else if (state is LoadCategoriesFailed) {
-            print(state.errMsg);
             WidgetsBinding.instance.addPostFrameCallback((_) {
               AppCommons.showScaffold(context, message: state.errMsg);
             });
@@ -72,14 +71,16 @@ Widget category(CategoryEntity category) {
         width: 70,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: NetworkImage(category.image), //
+            image: NetworkImage(category.image),
+            alignment: Alignment.center,
+            fit: BoxFit.contain, //
           ),
           shape: BoxShape.circle,
         ),
       ),
 
       SizedBox(height: 8), //
-      Text(category.title),
+      Text(category.title, style: TextStyle(fontSize: 11)),
     ],
   );
 }

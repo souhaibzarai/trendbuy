@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import '../../../../utils/constants/constants.dart';
 import 'sign_in.dart';
 import '../../../../utils/constants/images_path.dart';
 import '../../../../utils/theme/app_colors.dart';
-import '../../../../common/app_commons.dart';
-
 import '../../../../common/widgets/custom_button.dart';
 import '../../../../common/widgets/global_app_bar.dart';
 import '../../../../utils/helpers/app_navigator.dart';
@@ -16,7 +15,7 @@ class ResetSentScreen extends StatelessWidget {
     return Scaffold(
       appBar: const GlobalAppBar(hideBackButton: true),
       body: SingleChildScrollView(
-        padding: AppCommons.padding,
+        padding: Constants.padding,
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

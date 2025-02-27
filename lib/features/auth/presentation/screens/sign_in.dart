@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:trendbuy/utils/constants/constants.dart';
 import '../../data/models/user_sign_in.dart';
-import '../../../../common/app_commons.dart';
 import '../../../../common/widgets/global_app_bar.dart';
 import 'password_screen.dart';
 import 'sign_up.dart';
@@ -21,7 +21,7 @@ class SignInScreen extends StatelessWidget {
     return Scaffold(
       appBar: const GlobalAppBar(hideBackButton: true),
       body: SingleChildScrollView(
-        padding: AppCommons.padding,
+        padding: Constants.padding,
         child: Form(
           key: formKey,
           child: Column(

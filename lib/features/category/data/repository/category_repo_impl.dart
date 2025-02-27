@@ -11,7 +11,6 @@ class CategoryRepoImpl implements CategoryRepository {
     try {
       final categories =
           await serviceLocator<CategoriesFirebaseService>().getCategories();
-      print('data from repo is : $categories');
       return categories.fold(
         (error) => Left('Error while fetching categories'),
         (data) => Right(
