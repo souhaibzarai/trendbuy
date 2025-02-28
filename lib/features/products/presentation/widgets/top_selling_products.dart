@@ -14,15 +14,16 @@ class TopSellingProducts extends StatelessWidget {
     return ListView.separated(
       scrollDirection: Axis.horizontal,
       itemCount: products.length,
-      separatorBuilder: (context, index) => SizedBox(width: 10),
+      separatorBuilder: (context, index) => const SizedBox(width: 10),
       itemBuilder:
           (context, index) => Stack(
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.all(Constants.border),
-                child: Image.network(
+                borderRadius: const BorderRadius.all(Constants.border),
+                child:  Image.network(
                   products[index].images!.first,
                   height: 300,
+                  width: 250,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -41,16 +42,16 @@ class TopSellingProducts extends StatelessWidget {
                               discountedPrice: products[index].discountedPrice,
                             ) ==
                             null
-                        ? SizedBox.shrink()
+                        ? const SizedBox.shrink()
                         : Container(
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                               bottomLeft: Constants.border,
                               bottomRight: Constants.border,
                             ),
                             color: AppColors.fillColor.withAlpha(200),
                           ),
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                             horizontal: 8,
                             vertical: 12,
                           ),
@@ -59,8 +60,8 @@ class TopSellingProducts extends StatelessWidget {
                               price: products[index].price,
                               discountedPrice: products[index].discountedPrice,
                             )!,
-                            style: TextStyle(
-                              color: AppColors.successColor,
+                            style: const TextStyle(
+                              color: AppColors.warningColor,
                               fontSize: 16,
                               fontWeight: FontWeight.w300,
                             ),
@@ -74,10 +75,10 @@ class TopSellingProducts extends StatelessWidget {
 
   Container productDetails(ProductEntity product) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
       decoration: BoxDecoration(
         color: AppColors.fillColor.withAlpha(200),
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           bottomRight: Constants.border,
           bottomLeft: Constants.border,
         ),
@@ -90,10 +91,10 @@ class TopSellingProducts extends StatelessWidget {
               Text(
                 product.title,
                 maxLines: 1,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 13,
                   overflow: TextOverflow.ellipsis,
-                  color: AppColors.whiteColor.withAlpha(255),
+                  color: Colors.white,
                   fontWeight: FontWeight.w300,
                 ),
               ),
@@ -103,11 +104,11 @@ class TopSellingProducts extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                product.discountedPrice == 1 ? 'Men' : 'Women',
-                style: TextStyle(
+                product.gender == 1 ? 'Man' : 'Women',
+                style: const TextStyle(
                   fontSize: 12,
                   color: AppColors.whiteColor,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               Text.rich(
@@ -116,20 +117,20 @@ class TopSellingProducts extends StatelessWidget {
                     price: product.price,
                     discountedPrice: product.discountedPrice,
                   ),
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: AppColors.successColor,
+                    fontWeight: FontWeight.w500,
+                  ),
                   children: [
                     TextSpan(
-                      text: ' MAD',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w300,
+                      text: ' \$',
+                      style:  TextStyle(
+                        fontWeight: FontWeight.w400,
                         color: AppColors.successColor.withAlpha(180), //
                       ),
                     ),
                   ],
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: AppColors.whiteColor,
-                    fontWeight: FontWeight.w500,
-                  ),
                 ),
               ),
             ],

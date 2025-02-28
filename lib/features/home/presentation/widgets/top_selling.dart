@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trendbuy/common/app_commons.dart';
+import 'package:trendbuy/common/widgets/custom_section.dart';
 import 'package:trendbuy/features/products/presentation/bloc/products_cubit.dart';
 import 'package:trendbuy/features/products/presentation/bloc/products_state.dart';
 import 'package:trendbuy/features/products/presentation/widgets/top_selling_products.dart';
@@ -17,30 +18,32 @@ class TopSelling extends StatelessWidget {
         buildWhen: (curr, prev) => curr != prev,
         builder: (context, state) {
           if (state is TopSellingProductsLoading) {
-            return Center(child: CircularProgressIndicator.adaptive());
+            return const Center(child: CircularProgressIndicator.adaptive());
           } else if (state is TopSellingProductsLoaded) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  constraints: BoxConstraints(
-                    maxHeight: 300, //
-                  ),
-                  child: TopSellingProducts(products: state.products),
-                ),
-              ],
+            return topSellingSection(
+              context,
+              state, //
             );
           } else if (state is LoadTopSellingProductsFailure) {
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              AppCommons.showScaffold(context, message: state.error);
-            });
-            return Center(
+            AppCommons.showScaffold(context, message: state.error);
+            return  Center(
               child: Text('Failed to load categories: ${state.error}'),
             );
           }
-          return SizedBox.shrink();
+          return const SizedBox.shrink();
         },
       ),
     );
   }
+}
+
+Widget topSellingSection(BuildContext context, TopSellingProductsLoaded state) {
+  return CustomSection(
+    sectionName: 'Top Selling',
+    haveButton: false,
+    widget: Container(
+      constraints: const BoxConstraints(maxHeight: 300),
+      child: TopSellingProducts(products: state.products),
+    ),
+  );
 }

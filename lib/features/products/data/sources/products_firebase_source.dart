@@ -12,7 +12,6 @@ class ProductsFirebaseSourceImpl implements ProductsFirebaseSource {
       final returnedData =
           await FirebaseFirestore.instance
               .collection('products')
-              .where('salesNumber', isGreaterThan: 20)
               .orderBy('salesNumber', descending: true)
               .limit(5)
               .get();

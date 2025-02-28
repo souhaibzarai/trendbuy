@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trendbuy/common/app_commons.dart';
 import 'package:trendbuy/common/bloc/categories/categories_cubit.dart';
 import 'package:trendbuy/common/bloc/categories/categories_state.dart';
+import 'package:trendbuy/common/widgets/custom_section.dart';
 import 'package:trendbuy/features/category/domain/entities/category.dart';
-import 'package:trendbuy/utils/theme/app_colors.dart';
 
 class Categories extends StatelessWidget {
   const Categories({super.key});
@@ -20,17 +20,18 @@ class Categories extends StatelessWidget {
               child: CircularProgressIndicator.adaptive(), //
             );
           } else if (state is CategoriesLoaded) {
-            return Column(
-              children: [
-                seeAll(context),
-                const SizedBox(height: 15), //
-                categories(context, state.categories),
-              ],
+            return CustomSection(
+              sectionName: 'Categories',
+              haveButton: true,
+              buttonText: 'See All',
+              onTap: () {},
+              widget: categories(
+                context,
+                state.categories, //
+              ),
             );
           } else if (state is LoadCategoriesFailed) {
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              AppCommons.showScaffold(context, message: state.errMsg);
-            });
+            AppCommons.showScaffold(context, message: state.errMsg);
             return Center(
               child: Text('Failed to load categories: ${state.errMsg}'),
             );
@@ -78,35 +79,8 @@ Widget category(CategoryEntity category) {
           shape: BoxShape.circle,
         ),
       ),
-
       SizedBox(height: 8), //
       Text(category.title, style: TextStyle(fontSize: 11)),
-    ],
-  );
-}
-
-Widget seeAll(BuildContext context) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      Text(
-        'Categories',
-        style: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
-          color: Colors.white,
-        ),
-      ),
-      GestureDetector(
-        child: Text(
-          'See All',
-          style: TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.w400,
-            color: AppColors.whiteColor,
-          ),
-        ), //
-      ),
     ],
   );
 }
