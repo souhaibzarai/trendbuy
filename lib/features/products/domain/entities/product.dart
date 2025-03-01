@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:trendbuy/features/products/domain/entities/color.dart';
+import 'color.dart';
 
 class ProductEntity {
   final String productId;

@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:trendbuy/features/auth/data/models/user.dart';
+import '../models/user.dart';
 import '../../../../service_locator.dart';
 import '../../domain/repository/auth_repo.dart';
 import '../models/user_create.dart';

@@ -1,4 +1,4 @@
-import 'package:trendbuy/features/category/domain/entities/category.dart';
+import '../../../features/category/domain/entities/category.dart';
 
 abstract class CategoriesState {}
 

@@ -1,6 +1,6 @@
 import '../../../../common/usecase.dart';
-import '../repository/auth_repo.dart';
 import '../../../../service_locator.dart';
+import '../repository/auth_repo.dart';
 
 class UserStatusUseCase extends Usecase<bool, dynamic> {
   @override

@@ -1,4 +1,4 @@
-import 'package:trendbuy/features/products/domain/entities/color.dart';
+import '../../domain/entities/color.dart';
 
 class ProductColorModel {
   final String title;

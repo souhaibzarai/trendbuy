@@ -1,4 +1,4 @@
-import 'package:trendbuy/features/auth/domain/entities/user.dart';
+import '../../../auth/domain/entities/user.dart';
 
 abstract class UserInfoDisplayState {}
 

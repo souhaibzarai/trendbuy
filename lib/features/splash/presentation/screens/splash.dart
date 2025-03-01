@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../home/presentation/screens/home.dart';
+
+import '../../../../utils/constants/images_path.dart';
 import '../../../../utils/helpers/app_navigator.dart';
 import '../../../auth/presentation/screens/sign_in.dart';
+import '../../../home/presentation/screens/home.dart';
 import '../cubit/splash_cubit.dart';
 import '../cubit/splash_state.dart';
-import '../../../../utils/constants/images_path.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trendbuy/features/home/presentation/screens/home.dart';
+import '../../../home/presentation/screens/home.dart';
 import '../../../../common/bloc/button/button_state.dart';
 import '../../../../common/bloc/button/button_state_cubit.dart';
-import '../../../../common/widgets/custom_reactive_button.dart';
+import '../../../../common/widgets/buttons/custom_reactive_button.dart';
 import '../../../../utils/constants/constants.dart';
 import '../../data/models/user_create.dart';
 import '../../domain/use_cases/sign_up.dart';
@@ -14,7 +14,7 @@ import '../bloc/gender_selector_cubit.dart';
 import '../widgets/age_selector.dart';
 import '../widgets/gender_selector.dart';
 import '../../../../common/app_commons.dart';
-import '../../../../common/widgets/global_app_bar.dart';
+import '../../../../common/widgets/appbar/global_app_bar.dart';
 import '../../../../utils/theme/app_colors.dart';
 
 class GenderAndAgeScreen extends StatelessWidget {
@@ -55,7 +55,7 @@ class GenderAndAgeScreen extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: Constants.padding,
+                padding: AppConstants.padding,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

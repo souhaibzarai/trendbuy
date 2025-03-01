@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/features/home/presentation/widgets/search.dart';
-import 'package:trendbuy/features/home/presentation/widgets/top_selling.dart';
-import 'package:trendbuy/utils/constants/constants.dart';
+import '../widgets/new_in_products.dart';
+import '../widgets/search.dart';
+import '../widgets/top_selling_products.dart';
+import '../../../../utils/constants/constants.dart';
 import '../widgets/categories.dart';
 import '../widgets/header.dart';
 
@@ -13,7 +14,7 @@ class HomeScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
-          padding: Constants.padding,
+          padding: AppConstants.padding,
           child: Column(
             children: [
               const Header(), //
@@ -22,7 +23,9 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(height: 25),
               const Categories(),
               const SizedBox(height: 25),
-              const TopSelling(),
+              const TopSellingProducts(),
+              const SizedBox(height: 25),
+              const NewInProducts(),
               // SizedBox(height: 380),
               // SignOutButton(),
             ],

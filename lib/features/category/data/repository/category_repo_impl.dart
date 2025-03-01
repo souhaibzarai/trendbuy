@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:trendbuy/features/category/data/sources/categories_firebase_service.dart';
-import 'package:trendbuy/features/category/domain/repository/category_repo.dart';
-import 'package:trendbuy/service_locator.dart';
+import '../sources/categories_firebase_service.dart';
+import '../../domain/repository/category_repo.dart';
+import '../../../../service_locator.dart';
 
 import '../models/category.dart';
 

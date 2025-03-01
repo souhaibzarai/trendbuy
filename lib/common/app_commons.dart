@@ -34,4 +34,8 @@ class AppCommons {
     }
     return '$discountedPrice';
   }
+
+  static Widget centerProgressIndicator = Center(
+    child: CircularProgressIndicator.adaptive(), //
+  );
 }

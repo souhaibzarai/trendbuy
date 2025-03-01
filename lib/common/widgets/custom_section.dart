@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/utils/theme/app_colors.dart';
+import '../../utils/theme/app_colors.dart';
 
 class CustomSection extends StatelessWidget {
   const CustomSection({
@@ -9,6 +9,8 @@ class CustomSection extends StatelessWidget {
     this.haveButton = false,
     this.buttonText,
     this.onTap,
+    this.color,
+    this.size,
   });
 
   final Widget widget;
@@ -16,6 +18,8 @@ class CustomSection extends StatelessWidget {
   final String? buttonText;
   final String sectionName;
   final VoidCallback? onTap;
+  final Color? color;
+  final double? size;
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +30,10 @@ class CustomSection extends StatelessWidget {
           children: [
             Text(
               sectionName,
-              style: const TextStyle(
-                fontSize: 16,
+              style: TextStyle(
+                fontSize: size ?? 16,
                 fontWeight: FontWeight.w500,
-                color: Colors.white,
+                color: color ?? Colors.white,
               ),
             ),
             haveButton! == true

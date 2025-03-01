@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../common/bloc/button/button_state.dart';
 import '../../../../common/bloc/button/button_state_cubit.dart';
-import '../../../../common/widgets/custom_reactive_button.dart';
+import '../../../../common/widgets/buttons/custom_reactive_button.dart';
 import '../../../../utils/constants/constants.dart';
 import '../../data/models/user_sign_in.dart';
 import '../../domain/use_cases/sign_in.dart';
 import '../../../home/presentation/screens/home.dart';
 import '../../../../utils/theme/app_colors.dart';
-import '../../../../common/widgets/global_app_bar.dart';
+import '../../../../common/widgets/appbar/global_app_bar.dart';
 import '../widgets/custom_header_text.dart';
 import '../widgets/custom_text_field.dart';
 import '../widgets/under_button_text.dart';
@@ -33,7 +33,7 @@ class PasswordScreen extends StatelessWidget {
     return Scaffold(
       appBar: const GlobalAppBar(hideBackButton: false),
       body: SingleChildScrollView(
-        padding: Constants.padding,
+        padding: AppConstants.padding,
         child: BlocProvider<ButtonStateCubit>(
           create: (context) => ButtonStateCubit(),
           child: BlocListener<ButtonStateCubit, ButtonState>(

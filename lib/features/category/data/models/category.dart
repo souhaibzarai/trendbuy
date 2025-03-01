@@ -1,4 +1,4 @@
-import 'package:trendbuy/features/category/domain/entities/category.dart';
+import '../../domain/entities/category.dart';
 
 class CategoryModel {
   final String categoryId;

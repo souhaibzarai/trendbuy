@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '../../common/widgets/custom_button.dart';
+import 'package:flutter/material.dart';
+
 import '/features/auth/presentation/screens/sign_in.dart';
 import '/utils/helpers/app_navigator.dart';
+import 'custom_button.dart';
 
 class SignOutButton extends StatelessWidget {
   const SignOutButton({super.key});
@@ -16,6 +17,7 @@ class SignOutButton extends StatelessWidget {
         await FirebaseAuth.instance.signOut();
         if (FirebaseAuth.instance.currentUser == null) {
           AppNavigator.pushAndRemove(
+            // ignore: use_build_context_synchronously TODO
             context,
             widget: SignInScreen(), //
           );

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trendbuy/features/auth/domain/entities/user.dart';
-import 'package:trendbuy/features/home/presentation/bloc/user_info_display_cubit.dart';
-import 'package:trendbuy/features/home/presentation/bloc/user_info_display_state.dart';
-import 'package:trendbuy/utils/constants/images_path.dart';
+import '../../../auth/domain/entities/user.dart';
+import '../bloc/user_info_display_cubit.dart';
+import '../bloc/user_info_display_state.dart';
+import '../../../../utils/constants/images_path.dart';
 
 import '../../../../utils/theme/app_colors.dart';
 

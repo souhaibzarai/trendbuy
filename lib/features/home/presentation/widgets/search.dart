@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/utils/theme/app_colors.dart';
+import '../../../../utils/theme/app_colors.dart';
 
 class Search extends StatelessWidget {
   const Search({super.key});

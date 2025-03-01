@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trendbuy/features/auth/domain/use_cases/get_user.dart';
-import 'package:trendbuy/features/home/presentation/bloc/user_info_display_state.dart';
-import 'package:trendbuy/service_locator.dart';
+import '../../../auth/domain/use_cases/get_user.dart';
+import 'user_info_display_state.dart';
+import '../../../../service_locator.dart';
 
 class UserInfoDisplayCubit extends Cubit<UserInfoDisplayState> {
   UserInfoDisplayCubit() : super(UserInfoLoading());
