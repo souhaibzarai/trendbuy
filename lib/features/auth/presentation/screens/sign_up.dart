@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import '../../../../utils/constants/constants.dart';
-import '../../data/models/user_create.dart';
-import 'gender_and_age.dart';
-import 'sign_in.dart';
+
 import '../../../../common/widgets/appbar/global_app_bar.dart';
-import '../../../../utils/helpers/app_navigator.dart';
 import '../../../../common/widgets/buttons/custom_button.dart';
+import '../../../../utils/constants/constants.dart';
+import '../../../../utils/helpers/app_navigator.dart';
+import '../../data/models/user_create.dart';
 import '../widgets/custom_header_text.dart';
 import '../widgets/custom_text_field.dart';
 import '../widgets/under_button_text.dart';
+import 'gender_and_age.dart';
+import 'sign_in.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});

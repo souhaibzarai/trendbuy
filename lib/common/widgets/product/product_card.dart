@@ -5,9 +5,9 @@ import '../../../utils/constants/constants.dart';
 import '../../../utils/theme/app_colors.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({super.key, required this.productEntity});
+  const ProductCard({super.key, required this.product});
 
-  final ProductEntity productEntity;
+  final ProductEntity product;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class ProductCard extends StatelessWidget {
         ClipRRect(
           borderRadius: const BorderRadius.all(AppConstants.border),
           child: Image.network(
-            productEntity.images!.first,
+            product.images!.first,
             height: 300,
             width: 250,
             fit: BoxFit.cover,
@@ -36,56 +36,45 @@ class ProductCard extends StatelessWidget {
               ),
             ),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      productEntity.title,
-                      maxLines: 1,
-                      style: const TextStyle(
-                        fontSize: 13,
-                        overflow: TextOverflow.ellipsis,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w300,
-                      ),
-                    ),
-                  ],
+                Text(
+                  product.title,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                  style: const TextStyle(
+                    overflow: TextOverflow.ellipsis,
+                    fontSize: 13,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w300,
+                  ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      productEntity.gender == 1 ? 'Man' : 'Women',
-                      style: const TextStyle(
-                        fontSize: 12,
-                        color: AppColors.whiteColor,
-                        fontWeight: FontWeight.w500,
-                      ),
+                Text.rich(
+                  TextSpan(
+                    text:
+                        '${AppCommons.getProductPrice(price: product.price, discountedPrice: product.discountedPrice)}\$  ',
+                    style: const TextStyle(
+                      fontSize: 12,
+                      color: AppColors.successColor,
+                      fontWeight: FontWeight.w500,
                     ),
-                    Text.rich(
+                    children: [
                       TextSpan(
-                        text: AppCommons.getProductPrice(
-                          price: productEntity.price,
-                          discountedPrice: productEntity.discountedPrice,
+                        text:
+                            (product.price == product.discountedPrice ||
+                                    product.discountedPrice == 0)
+                                ? ''
+                                : '${product.price.toString()}\$',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.whiteColor, //
+                          decoration: TextDecoration.lineThrough,
+                          decorationStyle: TextDecorationStyle.wavy,
+                          decorationThickness: 1.5,
                         ),
-                        style: const TextStyle(
-                          fontSize: 12,
-                          color: AppColors.successColor,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        children: [
-                          TextSpan(
-                            text: ' \$',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              color: AppColors.successColor.withAlpha(180), //
-                            ),
-                          ),
-                        ],
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -96,8 +85,8 @@ class ProductCard extends StatelessWidget {
           top: 0,
           child:
               AppCommons.getDiscountPrice(
-                        price: productEntity.price,
-                        discountedPrice: productEntity.discountedPrice,
+                        price: product.price,
+                        discountedPrice: product.discountedPrice,
                       ) ==
                       null
                   ? const SizedBox.shrink()
@@ -115,8 +104,8 @@ class ProductCard extends StatelessWidget {
                     ),
                     child: Text(
                       AppCommons.getDiscountPrice(
-                        price: productEntity.price,
-                        discountedPrice: productEntity.discountedPrice,
+                        price: product.price,
+                        discountedPrice: product.discountedPrice,
                       )!,
                       style: const TextStyle(
                         color: AppColors.warningColor,

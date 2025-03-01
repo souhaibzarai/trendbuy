@@ -1,7 +1,8 @@
 import 'package:dartz/dartz.dart';
-import '../models/user.dart';
+
 import '../../../../service_locator.dart';
 import '../../domain/repository/auth_repo.dart';
+import '../models/user.dart';
 import '../models/user_create.dart';
 import '../models/user_sign_in.dart';
 import '../sources/firebase_auth_service.dart';

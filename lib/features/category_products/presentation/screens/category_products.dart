@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trendbuy/features/category/domain/entities/category.dart';
+import '../../../category/domain/entities/category.dart';
 
 import '../../../../common/app_commons.dart';
 import '../../../../common/bloc/products/products_cubit.dart';
@@ -16,7 +16,7 @@ class CategoryProductsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: GlobalAppBar(hideBackButton: false, title: categoryEntity.title),
+      appBar: GlobalAppBar(hideBackButton: false),
       body: Padding(
         padding: AppConstants.padding,
         child: BlocProvider<ProductsDisplayCubit>(
@@ -30,22 +30,28 @@ class CategoryProductsScreen extends StatelessWidget {
                 return AppCommons.centerProgressIndicator;
               } else if (state is ProductsLoaded) {
                 final products = state.products;
+                // if (products.isEmpty) {
+                //   return Center(child: Text('No items found'));
+                // }
                 return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text('${categoryEntity.title} (${products.length})'),
                     SizedBox(height: 15),
-                    GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        childAspectRatio: 3 / 4,
-                        crossAxisSpacing: 15,
-                        mainAxisSpacing: 15,
+                    Expanded(
+                      child: GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          childAspectRatio: 3 / 4,
+                          crossAxisSpacing: 15,
+                          mainAxisSpacing: 15,
+                        ),
+                        itemCount: products.length,
+                        itemBuilder: (context, index) {
+                          final currentProduct = products[index];
+                          return ProductCard(product: currentProduct);
+                        },
                       ),
-                      itemCount: products.length,
-                      itemBuilder: (context, index) {
-                        final currentProduct = products[index];
-                        return ProductCard(productEntity: currentProduct);
-                      },
                     ),
                   ],
                 );

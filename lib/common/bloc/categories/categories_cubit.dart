@@ -1,8 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'categories_state.dart';
+
 import '../../../features/category/domain/usecases/get_categories.dart';
 import '../../../service_locator.dart';
+import 'categories_state.dart';
 
 class CategoriesCubit extends Cubit<CategoriesState> {
   CategoriesCubit() : super(CategoriesLoading());

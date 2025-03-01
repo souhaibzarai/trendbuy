@@ -54,7 +54,7 @@ Widget categories(BuildContext context, List<CategoryEntity> categories) {
     height: 120,
     child: ListView.separated(
       scrollDirection: Axis.horizontal,
-      itemCount: 5,
+      itemCount: categories.length,
       separatorBuilder:
           (context, index) => VerticalDivider(
             width: 30,

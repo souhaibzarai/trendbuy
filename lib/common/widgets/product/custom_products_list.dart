@@ -13,8 +13,7 @@ class CustomProductsList extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       itemCount: products.length,
       separatorBuilder: (context, index) => const SizedBox(width: 10),
-      itemBuilder:
-          (context, index) => ProductCard(productEntity: products[index]),
+      itemBuilder: (context, index) => ProductCard(product: products[index]),
     );
   }
 }

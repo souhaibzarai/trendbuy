@@ -1,8 +1,9 @@
 import 'package:dartz/dartz.dart';
+
 import '../../../../common/usecase.dart';
+import '../../../../service_locator.dart';
 import '../../data/models/user_sign_in.dart';
 import '../repository/auth_repo.dart';
-import '../../../../service_locator.dart';
 
 class SignInUsecase extends Usecase<Either, UserSignIn> {
   @override

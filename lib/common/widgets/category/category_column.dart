@@ -12,7 +12,7 @@ Widget categoryColumn(BuildContext context, CategoryEntity category) {
           image: DecorationImage(
             image: NetworkImage(category.image),
             alignment: Alignment.center,
-            fit: BoxFit.contain, //
+            fit: BoxFit.cover,
           ),
           shape: BoxShape.circle,
         ),

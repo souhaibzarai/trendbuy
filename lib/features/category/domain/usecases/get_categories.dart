@@ -1,7 +1,8 @@
 import 'package:dartz/dartz.dart';
+
 import '../../../../common/usecase.dart';
-import '../repository/category_repo.dart';
 import '../../../../service_locator.dart';
+import '../repository/category_repo.dart';
 
 class GetCategoriesUseCase extends Usecase<Either, dynamic> {
   @override

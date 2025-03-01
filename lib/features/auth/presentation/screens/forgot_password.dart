@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../common/app_commons.dart';
 import '../../../../common/bloc/button/button_state.dart';
 import '../../../../common/bloc/button/button_state_cubit.dart';
+import '../../../../common/widgets/appbar/global_app_bar.dart';
 import '../../../../common/widgets/buttons/custom_reactive_button.dart';
 import '../../../../utils/constants/constants.dart';
-import '../../domain/use_cases/reset_password.dart';
-import 'reset_sent_screen.dart';
 import '../../../../utils/helpers/app_navigator.dart';
-import '../../../../common/app_commons.dart';
-
-import '../../../../common/widgets/appbar/global_app_bar.dart';
+import '../../domain/use_cases/reset_password.dart';
 import '../widgets/custom_header_text.dart';
 import '../widgets/custom_text_field.dart';
+import 'reset_sent_screen.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
   ForgotPasswordScreen({

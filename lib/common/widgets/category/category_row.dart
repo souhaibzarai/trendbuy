@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import '../../../features/category/domain/entities/category.dart';
 import '../../../utils/theme/app_colors.dart';
 
@@ -21,7 +22,7 @@ Widget categoryRow(CategoryEntity category) {
             image: DecorationImage(
               image: NetworkImage(category.image),
               alignment: Alignment.center,
-              fit: BoxFit.contain, //
+              fit: BoxFit.cover, //
             ),
             shape: BoxShape.circle,
           ),

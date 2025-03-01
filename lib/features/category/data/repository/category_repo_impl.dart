@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import '../sources/categories_firebase_service.dart';
-import '../../domain/repository/category_repo.dart';
-import '../../../../service_locator.dart';
 
+import '../../../../service_locator.dart';
+import '../../domain/repository/category_repo.dart';
 import '../models/category.dart';
+import '../sources/categories_firebase_service.dart';
 
 class CategoryRepoImpl implements CategoryRepository {
   @override
