@@ -5,8 +5,8 @@ import '../../../../utils/constants/images_path.dart';
 import '../../../../utils/helpers/app_navigator.dart';
 import '../../../auth/presentation/screens/sign_in.dart';
 import '../../../home/presentation/screens/home.dart';
-import '../cubit/splash_cubit.dart';
-import '../cubit/splash_state.dart';
+import '../bloc/splash_cubit.dart';
+import '../bloc/splash_state.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
