@@ -4,11 +4,12 @@ import '../../usecase.dart';
 import 'products_state.dart';
 
 class ProductsDisplayCubit extends Cubit<ProductsDisplayState> {
-  ProductsDisplayCubit({required this.usecase}) : super(ProductsLoading());
+  ProductsDisplayCubit({required this.usecase}) : super(ProductsInitialState());
 
   final Usecase usecase;
 
   void displayProducts({dynamic params}) async {
+    emit(ProductsLoading());
     try {
       final returnedData = await usecase.call(params: params);
 
@@ -28,5 +29,9 @@ class ProductsDisplayCubit extends Cubit<ProductsDisplayState> {
       print('Error details: $e');
       print('Stack trace: $stackTrace');
     }
+  }
+
+  void displayInitial() {
+    emit(ProductsInitialState());
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trendbuy/common/app_commons.dart';
 
 import 'app_colors.dart';
 
@@ -11,10 +12,14 @@ class AppTheme {
     textTheme: const TextTheme(),
     inputDecorationTheme: const InputDecorationTheme().copyWith(
       constraints: const BoxConstraints(maxHeight: 80, maxWidth: 340),
-      border: getOutlineInputBorder(),
-      enabledBorder: getOutlineInputBorder(),
-      errorBorder: getOutlineInputBorder(color: AppColors.errorColor),
-      focusedBorder: getOutlineInputBorder(color: AppColors.successColor),
+      border: AppCommons.getOutlineInputBorder(),
+      enabledBorder: AppCommons.getOutlineInputBorder(),
+      errorBorder: AppCommons.getOutlineInputBorder(
+        color: AppColors.errorColor,
+      ),
+      focusedBorder: AppCommons.getOutlineInputBorder(
+        color: AppColors.successColor,
+      ),
       fillColor: const Color.fromARGB(255, 22, 44, 74),
       filled: true,
       contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
@@ -32,9 +37,9 @@ TextStyle getTextStyle({Color? color, double? fSize}) {
   );
 }
 
-OutlineInputBorder getOutlineInputBorder({Color? color}) {
-  return OutlineInputBorder(
-    borderRadius: BorderRadius.circular(4),
-    borderSide: BorderSide(color: color ?? Colors.transparent),
-  );
-}
+// OutlineInputBorder getOutlineInputBorder({Color? color}) {
+//   return OutlineInputBorder(
+//     borderRadius: BorderRadius.circular(4),
+//     borderSide: BorderSide(color: color ?? Colors.transparent),
+//   );
+// }

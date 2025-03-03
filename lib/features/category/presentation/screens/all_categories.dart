@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../common/app_commons.dart';
 import '../../../../common/bloc/categories/categories_cubit.dart';
 import '../../../../common/bloc/categories/categories_state.dart';
-import '../../../../common/widgets/appbar/global_app_bar.dart';
+import '../../../../common/widgets/appbar/custom_app_bar.dart';
 import '../../../../common/widgets/category/category_row.dart';
 import '../../../../utils/constants/constants.dart';
 import '../../../../utils/helpers/app_navigator.dart';
@@ -16,7 +16,7 @@ class AllCategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: GlobalAppBar(hideBackButton: false),
+      appBar: CustomAppBar(hideBackButton: false),
       body: Padding(
         padding: AppConstants.padding,
         child: BlocProvider<CategoriesCubit>(

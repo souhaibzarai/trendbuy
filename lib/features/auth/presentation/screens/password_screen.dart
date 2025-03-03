@@ -8,7 +8,7 @@ import '../../data/models/user_sign_in.dart';
 import '../../domain/use_cases/sign_in.dart';
 import '../../../home/presentation/screens/home.dart';
 import '../../../../utils/theme/app_colors.dart';
-import '../../../../common/widgets/appbar/global_app_bar.dart';
+import '../../../../common/widgets/appbar/custom_app_bar.dart';
 import '../widgets/custom_header_text.dart';
 import '../widgets/custom_text_field.dart';
 import '../widgets/under_button_text.dart';
@@ -31,7 +31,7 @@ class PasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const GlobalAppBar(hideBackButton: false),
+      appBar: const CustomAppBar(hideBackButton: false),
       body: SingleChildScrollView(
         padding: AppConstants.padding,
         child: BlocProvider<ButtonStateCubit>(

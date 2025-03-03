@@ -14,14 +14,14 @@ class AppCommons {
     });
   }
 
-  static String? getDiscountPrice({
+  static String? getDiscountPercentage({
     required double price,
     required double discountedPrice,
   }) {
     if (discountedPrice == price || discountedPrice == 0) {
       return null;
     }
-    final double result = ((discountedPrice / price) * 100);
+    final double result = 100 - ((discountedPrice / price) * 100);
     return '${result.round()}%';
   }
 
@@ -38,4 +38,14 @@ class AppCommons {
   static Widget centerProgressIndicator = Center(
     child: CircularProgressIndicator.adaptive(), //
   );
+
+  static OutlineInputBorder getOutlineInputBorder({
+    Color? color,
+    double? radiusSize,
+  }) {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(radiusSize ?? 4),
+      borderSide: BorderSide(color: color ?? Colors.transparent),
+    );
+  }
 }

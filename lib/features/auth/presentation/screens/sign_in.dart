@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../common/widgets/appbar/global_app_bar.dart';
+import '../../../../common/widgets/appbar/custom_app_bar.dart';
 import '../../../../common/widgets/buttons/custom_button.dart';
 import '../../../../utils/constants/constants.dart';
 import '../../../../utils/helpers/app_navigator.dart';
@@ -20,7 +20,7 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const GlobalAppBar(hideBackButton: true),
+      appBar: const CustomAppBar(hideBackButton: true),
       body: SingleChildScrollView(
         padding: AppConstants.padding,
         child: Form(

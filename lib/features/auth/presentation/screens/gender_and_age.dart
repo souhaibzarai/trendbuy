@@ -14,7 +14,7 @@ import '../bloc/gender_selector_cubit.dart';
 import '../widgets/age_selector.dart';
 import '../widgets/gender_selector.dart';
 import '../../../../common/app_commons.dart';
-import '../../../../common/widgets/appbar/global_app_bar.dart';
+import '../../../../common/widgets/appbar/custom_app_bar.dart';
 import '../../../../utils/theme/app_colors.dart';
 
 class GenderAndAgeScreen extends StatelessWidget {
@@ -28,7 +28,7 @@ class GenderAndAgeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const GlobalAppBar(),
+      appBar: const CustomAppBar(),
       body: MultiBlocProvider(
         providers: [
           BlocProvider(create: (context) => GenderSelectorCubit()),

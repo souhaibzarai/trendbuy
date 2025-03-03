@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:trendbuy/features/products/domain/usecases/get_products_by_title.dart';
 
 import 'features/auth/data/repository/auth_repo_impl.dart';
 import 'features/auth/data/sources/firebase_auth_service.dart';
@@ -92,6 +93,10 @@ Future<void> initDependencies() async {
 
   serviceLocator.registerSingleton<GetProductsByCategoryIdUseCase>(
     GetProductsByCategoryIdUseCase(), //
+  );
+
+  serviceLocator.registerSingleton<GetProductsByTitleUseCase>(
+    GetProductsByTitleUseCase(), //
   );
 
   // end Usecases

@@ -6,4 +6,6 @@ abstract class ProductsRepository {
   Future<Either> fetchNewProducts();
 
   Future<Either> fetchProductsByCategory(String categoryId);
+
+  Future<Either> fetchProductsByTitle(String title);
 }

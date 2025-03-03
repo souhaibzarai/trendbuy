@@ -63,4 +63,23 @@ class ProductsRepositoryImpl implements ProductsRepository {
       return Left('Error Occurred during fetching Products, $e');
     }
   }
+
+  @override
+  Future<Either> fetchProductsByTitle(String title) async {
+    try {
+      final products = await serviceLocator<ProductsFirebaseSource>()
+          .fetchProductsByTitle(title);
+
+      return products.fold(
+        (error) => Left('Error Occurred during fetching Products, $error'),
+        (data) => Right(
+          List.from(
+            data,
+          ).map((item) => ProductModel.fromJson(item).toEntity()).toList(),
+        ), //
+      );
+    } catch (e) {
+      return Left('Error Occurred during fetching Products, $e');
+    }
+  }
 }

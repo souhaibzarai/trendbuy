@@ -7,6 +7,8 @@ abstract class ProductsFirebaseSource {
   Future<Either> fetchNewProducts();
 
   Future<Either> fetchProductsByCategory(String categoryId);
+
+  Future<Either> fetchProductsByTitle(String title);
 }
 
 class ProductsFirebaseSourceImpl implements ProductsFirebaseSource {
@@ -61,6 +63,21 @@ class ProductsFirebaseSourceImpl implements ProductsFirebaseSource {
               .get();
 
       return Right(response.docs.map((data) => data.data()).toList());
+    } catch (e) {
+      return Left('Error Occurred during fetching new in Products, $e');
+    }
+  }
+
+  @override
+  Future<Either> fetchProductsByTitle(String title) async {
+    try {
+      final returnedData =
+          await FirebaseFirestore.instance
+              .collection('products')
+              .where('title', isGreaterThanOrEqualTo: title)
+              .get();
+
+      return Right(returnedData.docs.map((item) => item.data()).toList());
     } catch (e) {
       return Left('Error Occurred during fetching new in Products, $e');
     }

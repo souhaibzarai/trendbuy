@@ -12,4 +12,8 @@ class ImagesPath {
       'assets/$_imageMainFolderPathName/loading.gif';
   static const String defaultProfile =
       'assets/$_imageMainFolderPathName/default_profile.jpg';
+
+  static const String notFoundImg =
+      'assets/$_imageMainFolderPathName/product-not-found$_imgExt';
+  //
 }
