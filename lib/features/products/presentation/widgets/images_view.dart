@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:trendbuy/features/products/domain/entities/product.dart';
-import 'package:trendbuy/features/products/presentation/bloc/image_slide_cubit.dart';
-import 'package:trendbuy/utils/constants/constants.dart';
-import 'package:trendbuy/utils/theme/app_colors.dart';
+import '../../domain/entities/product.dart';
+import '../bloc/image_slide_cubit.dart';
+import '../../../../utils/constants/constants.dart';
+import '../../../../utils/theme/app_colors.dart';
 
 class ImagesView extends StatelessWidget {
-  ImagesView({super.key, required ProductEntity productEntity})
-    : _product = productEntity;
+  ImagesView({
+    super.key,
+    required ProductEntity productEntity, //
+  }) : _product = productEntity;
 
   final PageController _controller = PageController();
-
   final ProductEntity _product;
 
   @override
@@ -19,14 +20,14 @@ class ImagesView extends StatelessWidget {
     return BlocProvider(
       create: (context) => ImageSlideCubit(),
       child: Container(
-        padding: EdgeInsets.only(bottom: 10),
+        padding: const EdgeInsets.only(bottom: 10),
         height: 250,
         child: Stack(
           children: [
             Container(
               clipBehavior: Clip.hardEdge,
               height: 215,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(AppConstants.border), //
               ),
               child: Builder(
@@ -53,7 +54,7 @@ class ImagesView extends StatelessWidget {
                 onDotClicked: (index) {
                   _controller.animateToPage(
                     index,
-                    duration: Duration(milliseconds: 600),
+                    duration: const Duration(milliseconds: 600),
                     curve: Curves.easeInOutCirc,
                   );
                   context.read<ImageSlideCubit>().updateImageIndex(index);
@@ -75,7 +76,7 @@ class ImagesView extends StatelessWidget {
                     rotationAngle: 0,
                     borderRadius: BorderRadius.circular(2),
                     verticalOffset: -2,
-                    dotBorder: DotBorder(
+                    dotBorder: const DotBorder(
                       width: .8,
                       color: AppColors.tertiaryColor,
                       padding: 2, //

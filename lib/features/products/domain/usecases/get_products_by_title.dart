@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:trendbuy/common/usecase.dart';
-import 'package:trendbuy/features/products/domain/repository/products_repo.dart';
-import 'package:trendbuy/service_locator.dart';
+import '../../../../common/usecase.dart';
+import '../repository/products_repo.dart';
+import '../../../../service_locator.dart';
 
 class GetProductsByTitleUseCase extends Usecase<Either, String> {
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/features/products/presentation/screens/product_details.dart';
-import 'package:trendbuy/utils/helpers/app_navigator.dart';
+import '../../../features/products/presentation/screens/product_details.dart';
+import '../../../utils/helpers/app_navigator.dart';
 import '../../app_commons.dart';
 import '../../../features/products/domain/entities/product.dart';
 import '../../../utils/constants/constants.dart';

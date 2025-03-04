@@ -1,8 +1,9 @@
 import 'package:dartz/dartz.dart';
+
+import '../../../../service_locator.dart';
+import '../../domain/repository/products_repo.dart';
 import '../models/product.dart';
 import '../sources/products_firebase_source.dart';
-import '../../domain/repository/products_repo.dart';
-import '../../../../service_locator.dart';
 
 class ProductsRepositoryImpl implements ProductsRepository {
   @override

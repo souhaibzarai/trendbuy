@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/features/category_products/presentation/screens/category_products.dart';
-import 'package:trendbuy/utils/helpers/app_navigator.dart';
+import '../../../features/category_products/presentation/screens/category_products.dart';
+import '../../../utils/helpers/app_navigator.dart';
 import '../../../features/category/domain/entities/category.dart';
 
 Widget categoryColumn(BuildContext context, CategoryEntity category) {

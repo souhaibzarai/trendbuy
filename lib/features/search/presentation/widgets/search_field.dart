@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trendbuy/common/app_commons.dart';
-import 'package:trendbuy/common/bloc/products/products_cubit.dart';
+import '../../../../common/app_commons.dart';
+import '../../../../common/bloc/products/products_cubit.dart';
 
 import '../../../../utils/theme/app_colors.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/features/products/domain/entities/product.dart';
+import '../../domain/entities/product.dart';
 
 class ProductTitle extends StatelessWidget {
   const ProductTitle({
@@ -13,7 +13,7 @@ class ProductTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       _product.title,
-      style: TextStyle(
+      style: const TextStyle(
         fontWeight: FontWeight.bold, //
         fontSize: 16,
       ),

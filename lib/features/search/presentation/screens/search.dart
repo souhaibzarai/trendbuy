@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trendbuy/common/app_commons.dart';
-import 'package:trendbuy/common/bloc/products/products_cubit.dart';
-import 'package:trendbuy/common/bloc/products/products_state.dart';
-import 'package:trendbuy/common/widgets/appbar/custom_app_bar.dart';
-import 'package:trendbuy/features/products/domain/usecases/get_products_by_title.dart';
-import 'package:trendbuy/features/search/presentation/widgets/search_field.dart';
-import 'package:trendbuy/service_locator.dart';
-import 'package:trendbuy/utils/constants/constants.dart';
-import 'package:trendbuy/utils/constants/images_path.dart';
-import 'package:trendbuy/utils/theme/app_colors.dart';
+import '../../../../common/app_commons.dart';
+import '../../../../common/bloc/products/products_cubit.dart';
+import '../../../../common/bloc/products/products_state.dart';
+import '../../../../common/widgets/appbar/custom_app_bar.dart';
+import '../../../products/domain/usecases/get_products_by_title.dart';
+import '../widgets/search_field.dart';
+import '../../../../service_locator.dart';
+import '../../../../utils/constants/constants.dart';
+import '../../../../utils/constants/images_path.dart';
+import '../../../../utils/theme/app_colors.dart';
 
 import '../../../../common/widgets/product/products_grid_list.dart';
 

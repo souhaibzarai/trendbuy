@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/common/widgets/appbar/custom_app_bar.dart';
-import 'package:trendbuy/features/products/domain/entities/product.dart';
-import 'package:trendbuy/features/products/presentation/widgets/product_price.dart';
-import 'package:trendbuy/features/products/presentation/widgets/product_title.dart';
+import '../../../../common/widgets/appbar/custom_app_bar.dart';
+import '../../domain/entities/product.dart';
+import '../widgets/product_price.dart';
+import '../widgets/product_title.dart';
 
 import '../../../../utils/constants/constants.dart';
 import '../widgets/images_view.dart';
@@ -15,10 +15,10 @@ class ProductDetailsScreen extends StatelessWidget {
 
   final ProductEntity _product;
 
-  @override 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(hideBackButton: false),
+      appBar: const CustomAppBar(hideBackButton: false),
       body: SingleChildScrollView(
         padding: AppConstants.padding,
         child: Column(
@@ -28,8 +28,9 @@ class ProductDetailsScreen extends StatelessWidget {
             ImagesView(
               productEntity: _product, //
             ),
-            ProductTitle(product: _product,),
-            const SizedBox(height: 15),
+            const SizedBox(height: 10),
+            ProductTitle(product: _product),
+            const SizedBox(height: 10),
             ProductPrice(product: _product),
           ],
         ),

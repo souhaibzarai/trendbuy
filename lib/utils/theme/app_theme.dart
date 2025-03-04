@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/common/app_commons.dart';
+import '../../common/app_commons.dart';
 
 import 'app_colors.dart';
 

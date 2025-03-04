@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/common/widgets/product/product_card.dart';
-import 'package:trendbuy/features/products/domain/entities/product.dart';
+import 'product_card.dart';
+import '../../../features/products/domain/entities/product.dart';
 
 class ProductsGridList extends StatelessWidget {
   const ProductsGridList({

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/common/app_commons.dart';
-import 'package:trendbuy/features/products/domain/entities/product.dart';
-import 'package:trendbuy/utils/theme/app_colors.dart';
+import '../../../../common/app_commons.dart';
+import '../../domain/entities/product.dart';
+import '../../../../utils/theme/app_colors.dart';
 
 class ProductPrice extends StatelessWidget {
   const ProductPrice({super.key, required ProductEntity product})
@@ -13,7 +13,7 @@ class ProductPrice extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       '\$${AppCommons.getProductPrice(price: _product.price, discountedPrice: _product.discountedPrice)}',
-      style: TextStyle(
+      style: const TextStyle(
         fontWeight: FontWeight.bold, //
         color: AppColors.whiteColor,
         fontSize: 14,

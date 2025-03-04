@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trendbuy/common/widgets/product/products_grid_list.dart';
+import '../../../../common/widgets/product/products_grid_list.dart';
 import '../../../category/domain/entities/category.dart';
 
 import '../../../../common/app_commons.dart';
