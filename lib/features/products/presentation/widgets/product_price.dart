@@ -14,8 +14,8 @@ class ProductPrice extends StatelessWidget {
     return Text(
       '\$${AppCommons.getProductPrice(price: _product.price, discountedPrice: _product.discountedPrice)}',
       style: const TextStyle(
-        fontWeight: FontWeight.bold, //
-        color: AppColors.whiteColor,
+        fontWeight: FontWeight.bold,
+        color: AppColors.tertiaryColor,
         fontSize: 14,
       ),
     );
