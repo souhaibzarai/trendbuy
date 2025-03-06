@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'custom_product_detail_row.dart';
 
-class ProductSize extends StatelessWidget {
-  const ProductSize({super.key});
+class SelectedSize extends StatelessWidget {
+  const SelectedSize({super.key});
 
   @override
   Widget build(BuildContext context) {

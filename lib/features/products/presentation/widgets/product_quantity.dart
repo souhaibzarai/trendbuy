@@ -9,50 +9,45 @@ class ProductQuantity extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => ProductQuantityCubit()), //
-      ],
-      child: CustomProductDetailRow(
-        title: 'Quantity',
-        child: SizedBox(
-          width: 130,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Builder(
-                builder: (context) {
-                  final isQuantityOne =
-                      context.watch<ProductQuantityCubit>().state == 1;
-                  return customIcon(
-                    onPressed: () {
-                      context.read<ProductQuantityCubit>().decrementQuantity();
-                    },
-                    icon: Icons.remove,
-                    isNotEnabled: isQuantityOne,
-                  );
-                },
-              ),
-              BlocBuilder<ProductQuantityCubit, int>(
-                builder: (context, state) {
-                  return Text(
-                    state.toString(),
-                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
-                  );
-                },
-              ),
-              Builder(
-                builder: (context) {
-                  return customIcon(
-                    onPressed: () {
-                      context.read<ProductQuantityCubit>().incrementQuantity();
-                    },
-                    icon: Icons.add,
-                  );
-                },
-              ),
-            ],
-          ),
+    return CustomProductDetailRow(
+      title: 'Quantity',
+      child: SizedBox(
+        width: 130,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Builder(
+              builder: (context) {
+                final isQuantityOne =
+                    context.watch<ProductQuantityCubit>().state == 1;
+                return customIcon(
+                  onPressed: () {
+                    context.read<ProductQuantityCubit>().decrementQuantity();
+                  },
+                  icon: Icons.remove,
+                  isNotEnabled: isQuantityOne,
+                );
+              },
+            ),
+            BlocBuilder<ProductQuantityCubit, int>(
+              builder: (context, state) {
+                return Text(
+                  state.toString(),
+                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
+                );
+              },
+            ),
+            Builder(
+              builder: (context) {
+                return customIcon(
+                  onPressed: () {
+                    context.read<ProductQuantityCubit>().incrementQuantity();
+                  },
+                  icon: Icons.add,
+                );
+              },
+            ),
+          ],
         ),
       ),
     );

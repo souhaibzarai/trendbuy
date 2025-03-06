@@ -12,11 +12,11 @@ class AppBottomsheet {
     return showModalBottomSheet(
       backgroundColor: AppColors.fillColor,
       isDismissible: true,
-      showDragHandle: true,
-      shape: RoundedRectangleBorder(
+      showDragHandle: false,
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
-          topRight: Radius.circular(25), //
-          topLeft: Radius.circular(25), //
+          topRight: Radius.circular(25),
+          topLeft: Radius.circular(25),
         ),
       ),
       context: context,
