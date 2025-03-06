@@ -7,7 +7,7 @@ import '../../../../common/bloc/button/button_state_cubit.dart';
 import '../../../../common/widgets/appbar/custom_app_bar.dart';
 import '../../../../common/widgets/buttons/custom_reactive_button.dart';
 import '../../../../utils/constants/constants.dart';
-import '../../../../utils/helpers/app_navigator.dart';
+import '../../../../utils/helpers/navigator/app_navigator.dart';
 import '../../domain/use_cases/reset_password.dart';
 import '../widgets/custom_header_text.dart';
 import '../widgets/custom_text_field.dart';

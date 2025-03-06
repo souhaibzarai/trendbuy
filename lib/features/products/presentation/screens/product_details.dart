@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/common/widgets/buttons/custom_button.dart';
-import 'package:trendbuy/features/products/presentation/widgets/product_color.dart';
-import 'package:trendbuy/features/products/presentation/widgets/product_size.dart';
-import 'package:trendbuy/features/products/presentation/widgets/product_quantity.dart';
-import 'package:trendbuy/utils/theme/app_colors.dart';
+import '../widgets/add_to_bag.dart';
+import '../widgets/product_color.dart';
+import '../widgets/product_size.dart';
+import '../widgets/product_quantity.dart';
+import '../../../../utils/theme/app_colors.dart';
 import '../../../../common/widgets/appbar/custom_app_bar.dart';
 import '../../domain/entities/product.dart';
 import '../widgets/product_price.dart';
@@ -27,7 +27,7 @@ class ProductDetailsScreen extends StatelessWidget {
       bottomNavigationBar: BottomAppBar(
         height: 60,
         color: AppColors.fillColor,
-        child: customButton(context, onPressed: () {}),
+        child: const AddToBag(),
       ),
       body: SingleChildScrollView(
         padding: AppConstants.padding,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../search/presentation/screens/search.dart';
 import '../../../search/presentation/widgets/search_field.dart';
-import '../../../../utils/helpers/app_navigator.dart';
+import '../../../../utils/helpers/navigator/app_navigator.dart';
 
 class SearchButton extends StatelessWidget {
   const SearchButton({super.key});

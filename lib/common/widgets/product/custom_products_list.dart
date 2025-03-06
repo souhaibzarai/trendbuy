@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'product_card.dart';
+
 import '../../../features/products/domain/entities/product.dart';
+import 'product_card.dart';
 
 class CustomProductsList extends StatelessWidget {
   const CustomProductsList({super.key, required this.products});

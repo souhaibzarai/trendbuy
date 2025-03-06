@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../../features/products/presentation/screens/product_details.dart';
-import '../../../utils/helpers/app_navigator.dart';
-import '../../app_commons.dart';
+
 import '../../../features/products/domain/entities/product.dart';
+import '../../../features/products/presentation/screens/product_details.dart';
 import '../../../utils/constants/constants.dart';
+import '../../../utils/helpers/navigator/app_navigator.dart';
+import '../../../utils/helpers/product/product_price_helpers.dart';
 import '../../../utils/theme/app_colors.dart';
 
 class ProductCard extends StatelessWidget {
@@ -61,7 +62,7 @@ class ProductCard extends StatelessWidget {
                   Text.rich(
                     TextSpan(
                       text:
-                          '${AppCommons.getProductPrice(price: product.price, discountedPrice: product.discountedPrice)}\$  ',
+                          '${ProductPriceHelpers.getProductPrice(product: product)}\$  ',
                       style: const TextStyle(
                         fontSize: 12,
                         color: AppColors.successColor,
@@ -93,10 +94,7 @@ class ProductCard extends StatelessWidget {
             right: 10,
             top: 0,
             child:
-                AppCommons.getDiscountPercentage(
-                          price: product.price,
-                          discountedPrice: product.discountedPrice,
-                        ) ==
+                ProductPriceHelpers.getDiscountPercentage(product: product) ==
                         null
                     ? const SizedBox.shrink()
                     : Container(
@@ -112,9 +110,8 @@ class ProductCard extends StatelessWidget {
                         vertical: 12,
                       ),
                       child: Text(
-                        AppCommons.getDiscountPercentage(
-                          price: product.price,
-                          discountedPrice: product.discountedPrice,
+                        ProductPriceHelpers.getDiscountPercentage(
+                          product: product,
                         )!,
                         style: const TextStyle(
                           color: AppColors.warningColor,

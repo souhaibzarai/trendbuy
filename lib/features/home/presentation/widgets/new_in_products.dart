@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../common/app_commons.dart';
 import '../../../../common/bloc/products/products_cubit.dart';
 import '../../../../common/bloc/products/products_state.dart';
-import '../../../../service_locator.dart';
-
 import '../../../../common/widgets/custom_section.dart';
 import '../../../../common/widgets/product/custom_products_list.dart';
+import '../../../../service_locator.dart';
 import '../../../products/domain/usecases/get_new_in.dart';
 
 class NewInProducts extends StatelessWidget {

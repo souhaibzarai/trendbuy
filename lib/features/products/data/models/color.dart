@@ -2,17 +2,17 @@ import '../../domain/entities/color.dart';
 
 class ProductColorModel {
   final String title;
-  final String hexCode;
+  final List<String> rgb;
 
   ProductColorModel({
     required this.title,
-    required this.hexCode, //
+    required this.rgb, //
   });
 
   factory ProductColorModel.fromJson(Map<String, dynamic> json) {
     return ProductColorModel(
       title: json['title'],
-      hexCode: json['hexCode'], //
+      rgb: List.from(json['rgb'] as List).map((e) => e.toString()).toList(), //
     );
   }
 }
@@ -21,7 +21,7 @@ extension ProductColorXModel on ProductColorModel {
   ProductColorEntity toEntity() {
     return ProductColorEntity(
       title: title,
-      hexCode: hexCode, //
+      rgb: rgb, //
     );
   }
 }

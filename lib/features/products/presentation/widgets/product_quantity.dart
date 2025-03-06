@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trendbuy/features/products/presentation/bloc/product_quantity_cubit.dart';
-import 'package:trendbuy/features/products/presentation/widgets/custom_product_detail_row.dart';
-import 'package:trendbuy/utils/theme/app_colors.dart';
+import '../bloc/product_quantity_cubit.dart';
+import 'custom_product_detail_row.dart';
+import '../../../../utils/theme/app_colors.dart';
 
 class ProductQuantity extends StatelessWidget {
   const ProductQuantity({super.key});
@@ -25,14 +25,9 @@ class ProductQuantity extends StatelessWidget {
                   final isQuantityOne =
                       context.watch<ProductQuantityCubit>().state == 1;
                   return customIcon(
-                    onPressed:
-                        isQuantityOne
-                            ? null
-                            : () {
-                              context
-                                  .read<ProductQuantityCubit>()
-                                  .decrementQuantity();
-                            },
+                    onPressed: () {
+                      context.read<ProductQuantityCubit>().decrementQuantity();
+                    },
                     icon: Icons.remove,
                     isNotEnabled: isQuantityOne,
                   );
@@ -80,7 +75,7 @@ Widget customIcon({
         height: 40,
         child: Center(
           child: IconButton(
-            onPressed: onPressed,
+            onPressed: isNotEnabled ? null : onPressed,
             icon: Icon(icon, color: AppColors.fillColor),
           ),
         ),

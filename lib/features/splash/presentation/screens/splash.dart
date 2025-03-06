@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../utils/constants/images_path.dart';
-import '../../../../utils/helpers/app_navigator.dart';
+import '../../../../utils/helpers/navigator/app_navigator.dart';
 import '../../../auth/presentation/screens/sign_in.dart';
 import '../../../home/presentation/screens/home.dart';
 import '../bloc/splash_cubit.dart';

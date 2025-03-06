@@ -14,26 +14,7 @@ class AppCommons {
     });
   }
 
-  static String? getDiscountPercentage({
-    required double price,
-    required double discountedPrice,
-  }) {
-    if (discountedPrice == price || discountedPrice == 0) {
-      return null;
-    }
-    final double result = 100 - ((discountedPrice / price) * 100);
-    return '${result.round()}%';
-  }
-
-  static String getProductPrice({
-    required double price,
-    required double? discountedPrice,
-  }) {
-    if (discountedPrice == null) {
-      return '$price';
-    }
-    return '$discountedPrice';
-  }
+  
 
   static Widget centerProgressIndicator = Center(
     child: CircularProgressIndicator.adaptive(), //

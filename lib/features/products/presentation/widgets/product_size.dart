@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/features/products/presentation/widgets/custom_product_detail_row.dart';
+import 'custom_product_detail_row.dart';
 
 class ProductSize extends StatelessWidget {
   const ProductSize({super.key});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../common/app_commons.dart';
+import '../../../../utils/helpers/product/product_price_helpers.dart';
 import '../../domain/entities/product.dart';
 import '../../../../utils/theme/app_colors.dart';
 
@@ -12,7 +12,7 @@ class ProductPrice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      '\$${AppCommons.getProductPrice(price: _product.price, discountedPrice: _product.discountedPrice)}',
+      '\$${ProductPriceHelpers.getProductPrice(product: _product)}',
       style: const TextStyle(
         fontWeight: FontWeight.bold,
         color: AppColors.tertiaryColor,

@@ -1,5 +1,4 @@
 import 'package:get_it/get_it.dart';
-import 'features/products/domain/usecases/get_products_by_title.dart';
 
 import 'features/auth/data/repository/auth_repo_impl.dart';
 import 'features/auth/data/sources/firebase_auth_service.dart';
@@ -19,6 +18,7 @@ import 'features/products/data/sources/products_firebase_source.dart';
 import 'features/products/domain/repository/products_repo.dart';
 import 'features/products/domain/usecases/get_new_in.dart';
 import 'features/products/domain/usecases/get_products_by_category_id.dart';
+import 'features/products/domain/usecases/get_products_by_title.dart';
 import 'features/products/domain/usecases/get_top_selling.dart';
 
 final serviceLocator = GetIt.instance;

@@ -4,7 +4,7 @@ import '../../../../common/widgets/appbar/custom_app_bar.dart';
 import '../../../../common/widgets/buttons/custom_button.dart';
 import '../../../../utils/constants/constants.dart';
 import '../../../../utils/constants/images_path.dart';
-import '../../../../utils/helpers/app_navigator.dart';
+import '../../../../utils/helpers/navigator/app_navigator.dart';
 import '../../../../utils/theme/app_colors.dart';
 import 'sign_in.dart';
 

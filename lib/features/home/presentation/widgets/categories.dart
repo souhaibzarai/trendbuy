@@ -7,7 +7,7 @@ import '../../../../common/widgets/category/category_column.dart';
 import '../../../../common/widgets/custom_section.dart';
 import '../../../category/domain/entities/category.dart';
 import '../../../category/presentation/screens/all_categories.dart';
-import '../../../../utils/helpers/app_navigator.dart';
+import '../../../../utils/helpers/navigator/app_navigator.dart';
 
 class Categories extends StatelessWidget {
   const Categories({super.key});

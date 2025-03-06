@@ -7,7 +7,7 @@ import '../../../../common/bloc/categories/categories_state.dart';
 import '../../../../common/widgets/appbar/custom_app_bar.dart';
 import '../../../../common/widgets/category/category_row.dart';
 import '../../../../utils/constants/constants.dart';
-import '../../../../utils/helpers/app_navigator.dart';
+import '../../../../utils/helpers/navigator/app_navigator.dart';
 import '../../../category_products/presentation/screens/category_products.dart';
 
 class AllCategoriesScreen extends StatelessWidget {
