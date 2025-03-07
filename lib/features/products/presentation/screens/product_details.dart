@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trendbuy/features/products/presentation/bloc/product_color_cubit.dart';
 import '../bloc/product_quantity_cubit.dart';
 import '../widgets/add_to_bag.dart';
 import '../widgets/selected_color.dart';
-import '../widgets/product_size.dart';
+import '../widgets/selected_size.dart';
 import '../widgets/product_quantity.dart';
 import '../../../../common/widgets/appbar/custom_app_bar.dart';
 import '../../domain/entities/product.dart';
@@ -25,7 +26,8 @@ class ProductDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => ProductQuantityCubit()), //
+        BlocProvider(create: (context) => ProductQuantityCubit()),
+        BlocProvider(create: (context) => ProductColorCubit()),
       ],
       child: Scaffold(
         appBar: const CustomAppBar(hideBackButton: false),
@@ -48,7 +50,7 @@ class ProductDetailsScreen extends StatelessWidget {
               const SizedBox(height: 15),
               const SelectedSize(),
               const SizedBox(height: 15),
-              const SelectedColor(),
+              SelectedColor(productEntity: _product),
               const SizedBox(height: 15),
               const ProductQuantity(),
             ],

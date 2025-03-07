@@ -5,6 +5,7 @@ import '../../../../common/bloc/categories/categories_cubit.dart';
 import '../../../../common/bloc/categories/categories_state.dart';
 import '../../../../common/widgets/category/category_column.dart';
 import '../../../../common/widgets/custom_section.dart';
+import '../../../../utils/constants/constants.dart';
 import '../../../category/domain/entities/category.dart';
 import '../../../category/presentation/screens/all_categories.dart';
 import '../../../../utils/helpers/navigator/app_navigator.dart';
@@ -56,10 +57,7 @@ Widget categories(BuildContext context, List<CategoryEntity> categories) {
       scrollDirection: Axis.horizontal,
       itemCount: categories.length,
       separatorBuilder:
-          (context, index) => VerticalDivider(
-            width: 30,
-            color: Colors.transparent, //
-          ),
+          (context, index) => AppConstants.verticalTransparentDivider,
       itemBuilder:
           (context, index) => categoryColumn(
             context,

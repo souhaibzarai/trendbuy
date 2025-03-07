@@ -52,7 +52,7 @@ Widget _categories(BuildContext context) {
           itemCount: categories.length,
           separatorBuilder:
               (context, index) =>
-                  const Divider(height: 10, color: Colors.transparent),
+                  AppConstants.horizontalTransparentDivider,
           itemBuilder:
               (context, index) => GestureDetector(
                 onTap: () {

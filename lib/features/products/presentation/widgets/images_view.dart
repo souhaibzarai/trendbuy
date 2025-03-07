@@ -37,7 +37,10 @@ class ImagesView extends StatelessWidget {
                       context.read<ImageSlideCubit>().updateImageIndex(index);
                     },
                     controller: _controller,
-                    itemCount: _product.images!.length,
+                    itemCount:
+                        _product.images!.length >= 8
+                            ? 8
+                            : _product.images!.length,
                     itemBuilder: (context, index) {
                       return Image.network(
                         _product.images![index],
@@ -60,7 +63,10 @@ class ImagesView extends StatelessWidget {
                   context.read<ImageSlideCubit>().updateImageIndex(index);
                 },
                 controller: _controller,
-                count: _product.images!.length, //
+                count:
+                    _product.images!.length >= 8
+                        ? 8
+                        : _product.images!.length, //
                 effect: CustomizableEffect(
                   dotDecoration: DotDecoration(
                     color: AppColors.fillColor,
