@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../common/app_commons.dart';
-import '../../../../common/bloc/products/products_cubit.dart';
-import '../../../../common/bloc/products/products_state.dart';
+import '../../../../common/cubit/products/products_cubit.dart';
+import '../../../../common/cubit/products/products_state.dart';
 import '../../../../common/widgets/appbar/custom_app_bar.dart';
 import '../../../products/domain/usecases/get_products_by_title.dart';
 import '../widgets/search_field.dart';

@@ -5,6 +5,8 @@ import 'package:trendbuy/features/order/data/models/add_to_cart.dart';
 
 abstract class OrderFirebaseSource {
   Future<Either> addToCart(AddToCartModel addToCartRequest);
+
+  Future<Either> getCartOrders();
 }
 
 class OrderFirebaseSourceImpl implements OrderFirebaseSource {
@@ -20,6 +22,22 @@ class OrderFirebaseSourceImpl implements OrderFirebaseSource {
           .add(addToCartRequest.toJson());
 
       return const Right('Added to cart successfully');
+    } catch (e) {
+      return Left('Error Occurred, $e');
+    }
+  }
+
+  @override
+  Future<Either> getCartOrders() async {
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+      final response =
+          await FirebaseFirestore.instance
+              .collection('users')
+              .doc(user!.uid)
+              .collection('cart')
+              .get();
+      return Right(response.docs.map((e) => e.data()).toList());
     } catch (e) {
       return Left('Error Occurred, $e');
     }

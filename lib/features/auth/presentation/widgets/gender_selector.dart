@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../utils/theme/app_colors.dart';
-import '../bloc/gender_selector_cubit.dart';
+import '../cubit/gender_selector_cubit.dart';
 
 genderSelector(
   BuildContext context, {

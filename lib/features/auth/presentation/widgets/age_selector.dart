@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../common/widgets/bottomsheet/app_bottomsheet.dart';
 import '../../../../utils/theme/app_colors.dart';
-import '../bloc/age_selector_cubit.dart';
-import '../bloc/ages_display_cubit.dart';
+import '../cubit/age_selector_cubit.dart';
+import '../cubit/ages_display_cubit.dart';
 import 'ages.dart';
 
 Widget ageSelector(BuildContext context) {

@@ -1,4 +1,4 @@
-class AddToCartModel {
+class CartOrdersEntity {
   final String productId;
   final String productTitle;
   final String productColor;
@@ -9,7 +9,7 @@ class AddToCartModel {
   final String productImageUrl;
   final String createdAt;
 
-  AddToCartModel({
+  CartOrdersEntity({
     required this.productId,
     required this.productTitle,
     required this.productColor,
@@ -20,19 +20,4 @@ class AddToCartModel {
     required this.productImageUrl,
     required this.createdAt,
   });
-
-  Map<String, dynamic> toJson() {
-    return <String, dynamic>{
-      // 'userId': userId,
-      'productId': productId,
-      'productTitle': productTitle,
-      'productColor': productColor,
-      'productSize': productSize,
-      'productQuantity': productQuantity,
-      'productPrice': productPrice,
-      'totalPrice': totalPrice,
-      'productImageUrl': productImageUrl,
-      'createdAt': createdAt,
-    };
-  }
 }

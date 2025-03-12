@@ -5,9 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../common/app_commons.dart';
 import '../../../../utils/helpers/navigator/app_navigator.dart';
 import '../../../../utils/theme/app_colors.dart';
-import '../bloc/age_selector_cubit.dart';
-import '../bloc/ages_display_cubit.dart';
-import '../bloc/ages_display_state.dart';
+import '../cubit/age_selector_cubit.dart';
+import '../cubit/ages_display_cubit.dart';
+import '../cubit/ages_display_state.dart';
 
 class Ages extends StatelessWidget {
   const Ages({super.key});

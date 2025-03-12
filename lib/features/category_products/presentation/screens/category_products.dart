@@ -4,8 +4,8 @@ import '../../../../common/widgets/product/products_grid_list.dart';
 import '../../../category/domain/entities/category.dart';
 
 import '../../../../common/app_commons.dart';
-import '../../../../common/bloc/products/products_cubit.dart';
-import '../../../../common/bloc/products/products_state.dart';
+import '../../../../common/cubit/products/products_cubit.dart';
+import '../../../../common/cubit/products/products_state.dart';
 import '../../../../common/widgets/appbar/custom_app_bar.dart';
 import '../../../../utils/constants/constants.dart';
 import '../../../products/domain/usecases/get_products_by_category_id.dart';

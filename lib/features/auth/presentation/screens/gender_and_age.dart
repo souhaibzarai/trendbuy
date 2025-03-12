@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../common/app_commons.dart';
-import '../../../../common/bloc/button/button_state.dart';
-import '../../../../common/bloc/button/button_state_cubit.dart';
+import '../../../../common/cubit/button/button_state.dart';
+import '../../../../common/cubit/button/button_state_cubit.dart';
 import '../../../../common/widgets/appbar/custom_app_bar.dart';
 import '../../../../common/widgets/buttons/custom_reactive_button.dart';
 import '../../../../utils/constants/constants.dart';
@@ -12,9 +12,9 @@ import '../../../../utils/theme/app_colors.dart';
 import '../../../home/presentation/screens/home.dart';
 import '../../data/models/user_create.dart';
 import '../../domain/use_cases/sign_up.dart';
-import '../bloc/age_selector_cubit.dart';
-import '../bloc/ages_display_cubit.dart';
-import '../bloc/gender_selector_cubit.dart';
+import '../cubit/age_selector_cubit.dart';
+import '../cubit/ages_display_cubit.dart';
+import '../cubit/gender_selector_cubit.dart';
 import '../widgets/age_selector.dart';
 import '../widgets/gender_selector.dart';
 

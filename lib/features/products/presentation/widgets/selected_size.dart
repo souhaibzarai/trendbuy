@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trendbuy/common/widgets/bottomsheet/app_bottomsheet.dart';
 import 'package:trendbuy/features/products/domain/entities/product.dart';
-import 'package:trendbuy/features/products/presentation/bloc/product_size_cubit.dart';
+import 'package:trendbuy/features/products/presentation/cubit/product_size_cubit.dart';
 import 'package:trendbuy/features/products/presentation/widgets/product_sizes.dart';
 import 'custom_product_detail_row.dart';
 

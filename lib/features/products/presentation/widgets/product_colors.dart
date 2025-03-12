@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trendbuy/common/widgets/bottomsheet/custom_app_bottomsheet_header.dart';
 import 'package:trendbuy/common/widgets/product_detail/custom_cell.dart';
 import 'package:trendbuy/features/products/domain/entities/product.dart';
-import 'package:trendbuy/features/products/presentation/bloc/product_color_cubit.dart';
+import 'package:trendbuy/features/products/presentation/cubit/product_color_cubit.dart';
 import 'package:trendbuy/utils/constants/constants.dart';
 import 'package:trendbuy/utils/helpers/navigator/app_navigator.dart';
 import 'package:trendbuy/utils/helpers/product/product_color_helper.dart';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../common/app_commons.dart';
-import '../../../../common/bloc/categories/categories_cubit.dart';
-import '../../../../common/bloc/categories/categories_state.dart';
+import '../../../../common/cubit/categories/categories_cubit.dart';
+import '../../../../common/cubit/categories/categories_state.dart';
 import '../../../../common/widgets/category/category_column.dart';
 import '../../../../common/widgets/custom_section.dart';
 import '../../../../utils/constants/constants.dart';

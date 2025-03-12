@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../bloc/product_quantity_cubit.dart';
+import '../cubit/product_quantity_cubit.dart';
 import 'custom_product_detail_row.dart';
 import '../../../../utils/theme/app_colors.dart';
 

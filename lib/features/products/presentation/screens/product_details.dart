@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trendbuy/common/bloc/button/button_state_cubit.dart';
-import 'package:trendbuy/features/products/presentation/bloc/product_color_cubit.dart';
-import 'package:trendbuy/features/products/presentation/bloc/product_size_cubit.dart';
-import '../bloc/product_quantity_cubit.dart';
+import 'package:trendbuy/common/cubit/button/button_state_cubit.dart';
+import 'package:trendbuy/features/products/presentation/cubit/product_color_cubit.dart';
+import 'package:trendbuy/features/products/presentation/cubit/product_size_cubit.dart';
+import '../cubit/product_quantity_cubit.dart';
 import '../widgets/add_to_bag.dart';
 import '../widgets/selected_color.dart';
 import '../widgets/selected_size.dart';

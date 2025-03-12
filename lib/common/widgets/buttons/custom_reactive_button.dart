@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../utils/theme/app_colors.dart';
-import '../../bloc/button/button_state.dart';
-import '../../bloc/button/button_state_cubit.dart';
+import '../../cubit/button/button_state.dart';
+import '../../cubit/button/button_state_cubit.dart';
 
 class CustomReactiveButton extends StatelessWidget {
   final String buttonText;

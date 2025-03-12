@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../utils/constants/images_path.dart';
 import '../../../../utils/theme/app_colors.dart';
 import '../../../auth/domain/entities/user.dart';
-import '../bloc/user_info_display_cubit.dart';
-import '../bloc/user_info_display_state.dart';
+import '../cubit/user_info_display_cubit.dart';
+import '../cubit/user_info_display_state.dart';
 
 class Header extends StatelessWidget {
   const Header({super.key});
