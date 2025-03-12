@@ -6,7 +6,7 @@ class ProductEntity {
   final String productId;
   final String categoryId;
   final List<ProductColorEntity> colors;
-  final Timestamp createdAt;
+  final Timestamp ?createdAt; // TODO: remove null
   final double discountedPrice;
   final int gender;
   final List<String>? images;

@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'features/splash/presentation/bloc/splash_cubit.dart';
 import 'features/splash/presentation/screens/splash.dart';
 import 'firebase_options.dart';
@@ -25,9 +24,8 @@ class TrendBuy extends StatelessWidget {
       create: (context) => SplashCubit()..appStarted(),
       child: MaterialApp(
         theme: AppTheme.theme,
-        home: const SplashScreen(),
-        // home: const GenderAndAgeScreen(),
         debugShowCheckedModeBanner: false,
+        home: const SplashScreen(),
       ),
     );
   }

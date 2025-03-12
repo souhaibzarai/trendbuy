@@ -6,8 +6,8 @@ class CustomCell extends StatelessWidget {
   const CustomCell({
     super.key,
     required this.title,
-    required this.widget,
-    required this.color,
+    this.widget,
+    this.color,
     this.isSelected = false,
   });
 
@@ -32,9 +32,9 @@ class CustomCell extends StatelessWidget {
         children: [
           Text(
             title,
-            style: const TextStyle(
+            style: TextStyle(
               color: Colors.white,
-              fontSize: 14,
+              fontSize: widget == null ? 16 : 14,
               fontWeight: FontWeight.w400,
             ),
           ),

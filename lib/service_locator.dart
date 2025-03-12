@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:trendbuy/features/order/domain/repository/order.dart';
 
 import 'features/auth/data/repository/auth_repo_impl.dart';
 import 'features/auth/data/sources/firebase_auth_service.dart';
@@ -13,6 +14,9 @@ import 'features/category/data/repository/category_repo_impl.dart';
 import 'features/category/data/sources/categories_firebase_service.dart';
 import 'features/category/domain/repository/category_repo.dart';
 import 'features/category/domain/usecases/get_categories.dart';
+import 'features/order/data/repository/order_repo_impl.dart';
+import 'features/order/data/source/order_firebase_source.dart';
+import 'features/order/domain/usecases/add_to_cart.dart';
 import 'features/products/data/repository/products_repo_impl.dart';
 import 'features/products/data/sources/products_firebase_source.dart';
 import 'features/products/domain/repository/products_repo.dart';
@@ -37,6 +41,10 @@ Future<void> initDependencies() async {
     ProductsFirebaseSourceImpl(), //
   );
 
+  serviceLocator.registerSingleton<OrderFirebaseSource>(
+    OrderFirebaseSourceImpl(), //
+  );
+
   // end services
 
   // Repository
@@ -50,6 +58,10 @@ Future<void> initDependencies() async {
 
   serviceLocator.registerSingleton<ProductsRepository>(
     ProductsRepositoryImpl(), //
+  );
+
+  serviceLocator.registerSingleton<OrderRepository>(
+    OrderRepositoryImpl(), //
   );
 
   // end Repository
@@ -97,6 +109,10 @@ Future<void> initDependencies() async {
 
   serviceLocator.registerSingleton<GetProductsByTitleUseCase>(
     GetProductsByTitleUseCase(), //
+  );
+
+  serviceLocator.registerSingleton<AddToCartUseCase>(
+    AddToCartUseCase(), //
   );
 
   // end Usecases
