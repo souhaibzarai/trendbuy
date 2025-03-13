@@ -1,31 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trendbuy/common/app_commons.dart';
-import 'package:trendbuy/common/cubit/products/products_cubit.dart';
-import 'package:trendbuy/common/cubit/products/products_state.dart';
 import 'package:trendbuy/common/widgets/appbar/custom_app_bar.dart';
-import 'package:trendbuy/features/order/domain/usecases/get_cart_orders.dart';
+import 'package:trendbuy/features/order/presentation/cubit/cart_orders_cubit.dart';
+import 'package:trendbuy/features/order/presentation/cubit/cart_orders_state.dart';
+import 'package:trendbuy/features/order/presentation/widgets/ordered_product_item.dart';
+import 'package:trendbuy/utils/constants/constants.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create:
-          (context) => ProductsDisplayCubit(usecase: GetCartOrdersUseCase()),
+    return BlocProvider.value(
+      value: CartOrdersCubit()..getCartOrder(),
       child: Scaffold(
         appBar: CustomAppBar(), //
-        body: BlocBuilder<ProductsDisplayCubit, ProductsDisplayState>(
+        body: BlocBuilder<CartOrdersCubit, CartOrdersState>(
           builder: (context, state) {
-            if (state is ProductsLoading) {
+            if (state is CartOrdersLoading) {
+              print('cart loading');
               AppCommons.centerProgressIndicator;
             } //
-            else if (state is ProductsLoaded) {
-              return Text(state.products.length.toString());
+            else if (state is CartOrdersLoaded) {
+              print('cart loaded');
+              return Container(
+                padding: EdgeInsets.only(right: 10, left: 10, top: 10),
+                child: ListView.separated(
+                  itemBuilder: (context, index) {
+                    return OrderedProductItem(
+                      ordersEntity: state.cartOrders[index],
+                    );
+                  },
+                  separatorBuilder:
+                      (context, index) =>
+                          AppConstants.horizontalTransparentDivider,
+                  itemCount: state.cartOrders.length,
+                ),
+              );
             } //
-            else if (state is LoadProductsFailure) {
-              return Text(state.error.toString());
+            else if (state is LoadCartOrdersFailed) {
+              print('cart load failed');
+              return Text(state.errMsg.toString());
             }
             return SizedBox.shrink();
           },

@@ -24,7 +24,7 @@ class OrderRepositoryImpl implements OrderRepository {
         (data) => Right(
           List.from(
             data,
-          ).map((e) => CartOrdersModel.fromJson(data).toEntity()).toList(),
+          ).map((e) => CartOrdersModel.fromJson(e).toEntity()).toList(),
         ),
       );
     } catch (e) {

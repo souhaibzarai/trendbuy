@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trendbuy/features/order/presentation/cubit/cart_orders_cubit.dart';
+import 'package:trendbuy/features/order/presentation/cubit/cart_orders_state.dart';
+import 'package:trendbuy/features/order/presentation/screens/cart.dart';
+import 'package:trendbuy/utils/helpers/navigator/app_navigator.dart';
 
 import '../../../../utils/constants/images_path.dart';
 import '../../../../utils/theme/app_colors.dart';
@@ -12,8 +16,15 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<UserInfoDisplayCubit>(
-      create: (context) => UserInfoDisplayCubit()..displayUserInfo(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<UserInfoDisplayCubit>(
+          create: (context) => UserInfoDisplayCubit()..displayUserInfo(),
+        ),
+        BlocProvider<CartOrdersCubit>(
+          create: (context) => CartOrdersCubit()..getCartOrder(),
+        ),
+      ],
       child: BlocBuilder<UserInfoDisplayCubit, UserInfoDisplayState>(
         builder: (context, state) {
           if (state is UserInfoLoading) {
@@ -27,7 +38,7 @@ class Header extends StatelessWidget {
               children: [
                 _profileImage(state.user),
                 _gender(state.user),
-                _card(state.user),
+                _card(state.user, context),
               ],
             );
           }
@@ -84,17 +95,51 @@ class Header extends StatelessWidget {
     );
   }
 
-  Container _card(UserEntity user) {
-    return Container(
-      height: 50,
-      width: 50,
-      decoration: const BoxDecoration(
-        color: AppColors.tertiaryColor, //
-        shape: BoxShape.circle,
-      ),
-      child: Icon(
-        Icons.shopping_bag_sharp,
-        color: Colors.white, //
+  Widget _card(UserEntity user, BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        AppNavigator.push(context, widget: const CartScreen());
+      },
+      child: Stack(
+        children: [
+          Container(
+            height: 50,
+            width: 50,
+            decoration: const BoxDecoration(
+              // color: AppColors.tertiaryColor, //
+              shape: BoxShape.circle,
+            ),
+            child: Icon(
+              Icons.shopping_bag_sharp,
+              color: Colors.white, //
+            ),
+          ),
+          Positioned(
+            right: 0,
+            top: 0,
+            child: BlocBuilder<CartOrdersCubit, CartOrdersState>(
+              builder: (context, state) {
+                if (state is CartOrdersLoaded) {
+                  return state.cartOrders.isEmpty
+                      ? SizedBox.shrink()
+                      : Container(
+                        padding: EdgeInsets.all(3),
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: AppColors.errorColor,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Text(
+                          state.cartOrders.length.toString(),
+                          style: TextStyle(fontSize: 9, color: Colors.white),
+                        ),
+                      );
+                }
+                return SizedBox.shrink();
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
