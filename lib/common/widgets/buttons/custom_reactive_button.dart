@@ -28,9 +28,9 @@ class CustomReactiveButton extends StatelessWidget {
   }
 
   Widget _loading() {
-    return OutlinedButton(
+    return ElevatedButton(
       onPressed: null,
-      style: OutlinedButton.styleFrom(
+      style: ElevatedButton.styleFrom(
         enableFeedback: false,
         backgroundColor: AppColors.tertiaryColor,
         foregroundColor: Colors.white,
@@ -45,9 +45,9 @@ class CustomReactiveButton extends StatelessWidget {
   }
 
   Widget _initial() {
-    return OutlinedButton(
+    return ElevatedButton(
       onPressed: onPressed,
-      style: OutlinedButton.styleFrom(
+      style: ElevatedButton.styleFrom(
         enableFeedback: false,
         backgroundColor: AppColors.tertiaryColor,
         foregroundColor: Colors.white,

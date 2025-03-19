@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../utils/theme/app_colors.dart';
 
 class CustomProductDetailRow extends StatelessWidget {

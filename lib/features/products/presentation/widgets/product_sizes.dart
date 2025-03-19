@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trendbuy/common/widgets/product_detail/custom_cell.dart';
-import 'package:trendbuy/features/products/domain/entities/product.dart';
-import 'package:trendbuy/features/products/presentation/cubit/product_size_cubit.dart';
-import 'package:trendbuy/utils/constants/constants.dart';
-import 'package:trendbuy/utils/helpers/navigator/app_navigator.dart';
 
 import '../../../../common/widgets/bottomsheet/custom_app_bottomsheet_header.dart';
+import '../../../../common/widgets/product_detail/custom_cell.dart';
+import '../../../../utils/constants/constants.dart';
+import '../../../../utils/helpers/navigator/app_navigator.dart';
+import '../../domain/entities/product.dart';
+import '../cubit/product_size_cubit.dart';
 
 class ProductSizes extends StatelessWidget {
   const ProductSizes({super.key, required ProductEntity product})

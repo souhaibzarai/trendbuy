@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+
+import '../../../features/category/domain/entities/category.dart';
 import '../../../features/category_products/presentation/screens/category_products.dart';
 import '../../../utils/helpers/navigator/app_navigator.dart';
-import '../../../features/category/domain/entities/category.dart';
 
 Widget categoryColumn(BuildContext context, CategoryEntity category) {
   return GestureDetector(

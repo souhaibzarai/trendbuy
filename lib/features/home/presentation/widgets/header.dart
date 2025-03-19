@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trendbuy/features/order/presentation/cubit/cart_orders_cubit.dart';
-import 'package:trendbuy/features/order/presentation/cubit/cart_orders_state.dart';
-import 'package:trendbuy/features/order/presentation/screens/cart.dart';
-import 'package:trendbuy/utils/helpers/navigator/app_navigator.dart';
+import '../../../order/presentation/cubit/cart_orders_cubit.dart';
+import '../../../order/presentation/cubit/cart_orders_state.dart';
+import '../../../order/presentation/screens/cart.dart';
+import '../../../../utils/helpers/navigator/app_navigator.dart';
 
 import '../../../../utils/constants/images_path.dart';
 import '../../../../utils/theme/app_colors.dart';

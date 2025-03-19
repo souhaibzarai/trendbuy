@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:trendbuy/common/usecase.dart';
-import 'package:trendbuy/features/order/data/models/add_to_cart.dart';
-import 'package:trendbuy/features/order/domain/repository/order.dart';
-import 'package:trendbuy/service_locator.dart';
+import '../../../../common/usecase.dart';
+import '../../data/models/add_to_cart.dart';
+import '../repository/order.dart';
+import '../../../../service_locator.dart';
 
 class AddToCartUseCase extends Usecase<Either, AddToCartModel> {
   @override

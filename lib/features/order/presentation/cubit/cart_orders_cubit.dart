@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trendbuy/features/order/domain/usecases/get_cart_orders.dart';
-import 'package:trendbuy/features/order/presentation/cubit/cart_orders_state.dart';
-import 'package:trendbuy/service_locator.dart';
+import '../../domain/usecases/get_cart_orders.dart';
+import 'cart_orders_state.dart';
+import '../../../../service_locator.dart';
 
 class CartOrdersCubit extends Cubit<CartOrdersState> {
   CartOrdersCubit() : super(CartOrdersInitial());

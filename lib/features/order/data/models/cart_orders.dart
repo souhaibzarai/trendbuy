@@ -1,4 +1,4 @@
-import 'package:trendbuy/features/order/domain/entities/cart_orders.dart';
+import '../../domain/entities/cart_orders.dart';
 
 class CartOrdersModel {
   final String productId;

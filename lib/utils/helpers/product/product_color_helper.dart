@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:trendbuy/features/products/domain/entities/product.dart';
+
+import '../../../features/products/domain/entities/product.dart';
 
 class ProductColorHelper {
  static Color getProductColorUsingIndex(ProductEntity product, int index) {

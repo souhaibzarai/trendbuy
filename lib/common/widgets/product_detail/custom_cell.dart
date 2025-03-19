@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/utils/constants/constants.dart';
-import 'package:trendbuy/utils/theme/app_colors.dart';
+import '../../../utils/constants/constants.dart';
+import '../../../utils/theme/app_colors.dart';
 
 class CustomCell extends StatelessWidget {
   const CustomCell({

@@ -13,29 +13,32 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<SplashCubit, SplashState>(
-      listenWhen: (current, prev) => current != prev,
-      listener: (context, state) {
-        if (state is UnAuthenticated) {
-          AppNavigator.pushReplacement(
-            context,
-            widget: SignInScreen(), //
-          );
-        }
-        if (state is Authenticated) {
-          AppNavigator.pushReplacement(
-            context,
-            widget: const HomeScreen(), //
-          );
-        }
-      },
-      child: Scaffold(
-        body: Center(
-          child: Image.asset(
-            ImagesPath.splashImage,
-            width: double.infinity,
-            height: double.infinity,
-            fit: BoxFit.cover,
+    return BlocProvider(
+      create: (context) => SplashCubit()..appStarted(),
+      child: BlocListener<SplashCubit, SplashState>(
+        listenWhen: (current, prev) => current != prev,
+        listener: (context, state) {
+          if (state is UnAuthenticated) {
+            AppNavigator.pushReplacement(
+              context,
+              widget: SignInScreen(), //
+            );
+          }
+          if (state is Authenticated) {
+            AppNavigator.pushReplacement(
+              context,
+              widget: const HomeScreen(), //
+            );
+          }
+        },
+        child: Scaffold(
+          body: Center(
+            child: Image.asset(
+              ImagesPath.splashImage,
+              width: double.infinity,
+              height: double.infinity,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
       ),

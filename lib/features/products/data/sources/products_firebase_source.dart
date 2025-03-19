@@ -47,7 +47,7 @@ class ProductsFirebaseSourceImpl implements ProductsFirebaseSource {
               .orderBy('createdAt', descending: true)
               .get();
 
-      return Right(response.docs.map((data) => data.data()).toList());
+      return Right(response.docs.map((doc) => doc.data()).toList());
     } catch (e) {
       return Left('Error Occurred during fetching new in Products, $e');
     }

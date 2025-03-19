@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/utils/helpers/navigator/app_navigator.dart';
+import '../../../utils/helpers/navigator/app_navigator.dart';
 
 class CustomAppBottomSheetHeader extends StatelessWidget {
   const CustomAppBottomSheetHeader({

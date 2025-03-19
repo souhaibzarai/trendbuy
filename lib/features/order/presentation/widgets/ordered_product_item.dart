@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:trendbuy/features/order/domain/entities/cart_orders.dart';
-import 'package:trendbuy/utils/theme/app_colors.dart';
+import '../../domain/entities/cart_orders.dart';
+import '../../../../utils/theme/app_colors.dart';
 
 class OrderedProductItem extends StatelessWidget {
   const OrderedProductItem({super.key, required CartOrdersEntity ordersEntity})

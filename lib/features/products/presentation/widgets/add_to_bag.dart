@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trendbuy/common/app_commons.dart';
-import 'package:trendbuy/common/cubit/button/button_state.dart';
-import 'package:trendbuy/common/cubit/button/button_state_cubit.dart';
-import 'package:trendbuy/features/order/data/models/add_to_cart.dart';
-import 'package:trendbuy/features/order/domain/usecases/add_to_cart.dart';
-import 'package:trendbuy/features/order/presentation/screens/cart.dart';
-import 'package:trendbuy/features/products/domain/entities/product.dart';
-import 'package:trendbuy/features/products/presentation/cubit/product_color_cubit.dart';
-import 'package:trendbuy/features/products/presentation/cubit/product_quantity_cubit.dart';
-import 'package:trendbuy/features/products/presentation/cubit/product_size_cubit.dart';
-import 'package:trendbuy/utils/helpers/navigator/app_navigator.dart';
-import 'package:trendbuy/utils/helpers/product/product_price_helpers.dart';
-import 'package:trendbuy/utils/theme/app_colors.dart';
+import '../../../../common/app_commons.dart';
+import '../../../../common/cubit/button/button_state.dart';
+import '../../../../common/cubit/button/button_state_cubit.dart';
+import '../../../order/data/models/add_to_cart.dart';
+import '../../../order/domain/usecases/add_to_cart.dart';
+import '../../../order/presentation/screens/cart.dart';
+import '../../domain/entities/product.dart';
+import '../cubit/product_color_cubit.dart';
+import '../cubit/product_quantity_cubit.dart';
+import '../cubit/product_size_cubit.dart';
+import '../../../../utils/helpers/navigator/app_navigator.dart';
+import '../../../../utils/helpers/product/product_price_helpers.dart';
+import '../../../../utils/theme/app_colors.dart';
 
 import '../../../../common/widgets/buttons/basic_reactive_app_button.dart';
 

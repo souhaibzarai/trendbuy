@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trendbuy/common/app_commons.dart';
-import 'package:trendbuy/common/widgets/appbar/custom_app_bar.dart';
-import 'package:trendbuy/features/order/presentation/cubit/cart_orders_cubit.dart';
-import 'package:trendbuy/features/order/presentation/cubit/cart_orders_state.dart';
-import 'package:trendbuy/features/order/presentation/widgets/ordered_product_item.dart';
-import 'package:trendbuy/utils/constants/constants.dart';
+import '../../../../common/app_commons.dart';
+import '../../../../common/widgets/appbar/custom_app_bar.dart';
+import '../cubit/cart_orders_cubit.dart';
+import '../cubit/cart_orders_state.dart';
+import '../widgets/ordered_product_item.dart';
+import '../../../../utils/constants/constants.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});

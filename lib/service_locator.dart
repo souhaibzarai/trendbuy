@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
-import 'package:trendbuy/features/order/domain/repository/order.dart';
-import 'package:trendbuy/features/order/domain/usecases/get_cart_orders.dart';
+import 'features/order/domain/repository/order.dart';
+import 'features/order/domain/usecases/get_cart_orders.dart';
 
 import 'features/auth/data/repository/auth_repo_impl.dart';
 import 'features/auth/data/sources/firebase_auth_service.dart';
